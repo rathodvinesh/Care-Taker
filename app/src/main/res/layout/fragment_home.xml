@@ -3,13 +3,259 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.HomeFragment">
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hamburger" />
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home" />
+        android:id="@+id/textView28"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/text_shape"
+        android:fontFamily="@font/inter_medium"
+        android:paddingLeft="20dp"
+        android:paddingTop="7dp"
+        android:text="Search Caretaker"
+        android:textAlignment="inherit"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="390dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/text_shape"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="290dp"
+        android:layout_marginTop="160dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Shift:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="65dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="230dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Amount:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="290dp"
+        android:layout_marginTop="230dp"
+        android:background="@drawable/text_shape"
+        android:fontFamily="@font/inter_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="290dp"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/text_shape"
+        android:fontFamily="@font/inter_medium"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="215dp"
+        android:layout_marginTop="160dp"
+        android:background="@drawable/text_shape"
+        android:fontFamily="@font/inter_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="65dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/text_shape"
+        android:fontFamily="@font/inter_medium"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/editTextText9"
+        android:layout_width="45dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="340dp"
+        android:layout_marginTop="160dp"
+        android:background="@drawable/text_shape"
+        android:ems="10"
+        android:fontFamily="@font/inter_medium"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="55dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Name:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/text_shape"
+        android:fontFamily="@font/inter_medium"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="120dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Age:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="65dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="120dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Gender:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="160dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Contact:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="65dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="200dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Service:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="45dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="190dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/text_shape"
+        android:fontFamily="@font/inter_medium"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="200dp"
+        android:background="#2196F3"
+        android:text="Hire"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="200dp"
+        android:background="#2196F3"
+        android:fontFamily="@font/inter_medium"
+        android:text="Profile"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </FrameLayout>
