@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "392551125686",
+    "project_id": "caretaker-2024",
+    "storage_bucket": "caretaker-2024.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392551125686:android:276ceb89f264fa66804c17",
+        "android_client_info": {
+          "package_name": "com.example.caretaker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqvUQ4RenqQxPpzuSqOCeL6WhJIPaZbwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392551125686:android:814aa1c1ccdc1041804c17",
+        "android_client_info": {
+          "package_name": "eu.tutorials.caretakerapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqvUQ4RenqQxPpzuSqOCeL6WhJIPaZbwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
