@@ -25,24 +25,23 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="141dp"
+        android:layout_height="129dp"
         android:layout_marginStart="140dp"
         android:layout_marginTop="70dp"
-        tools:src="@tools:sample/avatars" />
+        android:src="@drawable/baseline_person_24" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="150dp"
+        android:layout_width="214dp"
         android:layout_height="50dp"
-        android:layout_marginStart="130dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="210dp"
         android:background="@color/button_color"
         android:fontFamily="@font/inter_medium"
-        android:text="Edit Picture"
+        android:text="Update Profile"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -51,20 +50,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextText"
+    <TextView
+        android:id="@+id/nameEditText"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="280dp"
-        android:background="@drawable/text_shape"
         android:ems="10"
         android:fontFamily="@font/inter_medium"
-        android:hint="  Enter your name "
-        android:inputType="text"
         android:paddingStart="10sp"
         android:textColor="@color/black"
-        android:textColorHint="@color/stroke_for_button"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -97,13 +92,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextText4"
+    <TextView
+        android:id="@+id/ageEditText"
         android:layout_width="70dp"
         android:layout_height="50dp"
         android:layout_marginStart="110dp"
         android:layout_marginTop="350dp"
-        android:background="@drawable/text_shape"
         android:ems="10"
         android:fontFamily="@font/inter_medium"
         android:hint="age"
@@ -112,19 +106,6 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="@color/stroke_for_button"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="355dp"
-        android:fontFamily="@font/inter_medium"
-        android:text="Gender:"
-        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -143,20 +124,6 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="425dp"
-        android:fontFamily="@font/inter_medium"
-        android:text="Contact:"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -179,6 +146,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView20"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="425dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Contact:"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textView21"
         android:layout_width="100dp"
         android:layout_height="30dp"
@@ -187,37 +168,6 @@
         android:fontFamily="@font/inter_medium"
         android:text="Address:"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="575dp"
-        android:fontFamily="@font/inter_medium"
-        android:text="Location:"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextText6"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="570dp"
-        android:background="@drawable/text_shape"
-        android:ems="10"
-        android:fontFamily="@font/inter_medium"
-        android:hint="Enter your location"
-        android:inputType="text"
-        android:paddingStart="5sp"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -242,6 +192,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/editTextText6"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="570dp"
+        android:background="@drawable/text_shape"
+        android:ems="10"
+        android:fontFamily="@font/inter_medium"
+        android:hint="Enter your location"
+        android:inputType="text"
+        android:paddingStart="5sp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
         android:id="@+id/editTextTextMultiLine"
         android:layout_width="200dp"
         android:layout_height="60dp"
@@ -260,6 +227,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView22"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="575dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Location:"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textView23"
         android:layout_width="100dp"
         android:layout_height="50dp"
@@ -268,6 +249,19 @@
         android:fontFamily="@font/inter_medium"
         android:text="Suffering from:"
         android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="355dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Gender:"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
