@@ -78,11 +78,11 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="98dp"
-                android:layout_height="wrap_content"
+                android:layout_width="105dp"
+                android:layout_height="111dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="15dp"
-                tools:src="@tools:sample/avatars" />
+                android:src="@drawable/baseline_person_24" />
 
             <TextView
                 android:id="@+id/textView39"
