@@ -34,7 +34,7 @@
         android:src="@drawable/baseline_person_24" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/updateBtn"
         android:layout_width="214dp"
         android:layout_height="50dp"
         android:layout_marginStart="100dp"

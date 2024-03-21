@@ -14,7 +14,11 @@
         android:id="@+id/profileFragment"
         android:name="com.example.caretaker.fragments.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_updateProfileFragment"
+            app:destination="@id/updateProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/applicationsFragment"
         android:name="com.example.caretaker.fragments.ApplicationsFragment"
@@ -30,4 +34,10 @@
         android:name="com.example.caretaker.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+
+    <fragment
+        android:id="@+id/updateProfileFragment"
+        android:name="com.example.caretaker.fragments.UpdateProfileFragment"
+        android:label="UpdateProfileFragment"
+        tools:layout="@layout/fragment_update_profile"/>
 </navigation>

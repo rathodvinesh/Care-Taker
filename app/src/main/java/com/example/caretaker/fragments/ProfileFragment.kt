@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import com.example.caretaker.PreLogin
 import com.example.caretaker.R
 import com.example.caretaker.databinding.FragmentProfileBinding
@@ -30,6 +31,9 @@ class ProfileFragment : Fragment() {
     ): View? {
         binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
 
+        val navHostFragment = requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
+
         auth =  Firebase.auth
 
         binding.logOutBtn.setOnClickListener{
@@ -39,6 +43,10 @@ class ProfileFragment : Fragment() {
             activity?.finish()
             startActivity(Intent(this.context, PreLogin::class.java))
 
+        }
+
+        binding.updateBtn.setOnClickListener {
+            navController.navigate(R.id.action_profileFragment_to_updateProfileFragment)
         }
 
         return binding.root
