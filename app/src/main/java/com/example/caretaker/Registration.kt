@@ -23,7 +23,7 @@ class Registration : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_registration)
+        setContentView(R.layout.activity_registration)
         binding = ActivityRegistrationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -33,6 +33,12 @@ class Registration : AppCompatActivity() {
         val passwordTV = binding.editTextPassword
         val nameTV = binding.editTextName
         val usernameTV = binding.editTextUsername
+        val ageTV = binding.editTextAge
+        val genderTV = binding.editTextGender
+        val contactTV = binding.editTextPhone
+        val addressTV = binding.editTextPostalAddress
+        val locationTV = binding.editTextLocation
+        val sufferingTV = binding.editTextAilment
 
         binding.signUpBtnReg.setOnClickListener{
 
@@ -40,13 +46,27 @@ class Registration : AppCompatActivity() {
             val password = passwordTV.text.toString()
             val name = nameTV.text.toString()
             val username = usernameTV.text.toString()
+            val age = ageTV.text.toString()
+            val gender = genderTV.text.toString()
+            val contact = contactTV.text.toString()
+            val address = addressTV.text.toString()
+            val location = locationTV.text.toString()
+            val suffering = sufferingTV.text.toString()
 
-            if(email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && username.isNotEmpty()){
+            if(email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && username.isNotEmpty()
+                && age.isNotEmpty() && gender.isNotEmpty() && contact.isNotEmpty() && address.isNotEmpty()
+                && location.isNotEmpty() && suffering.isNotEmpty()){
                 val user = hashMapOf(
                     "name" to name,
                     "username" to username,
                     "email" to email,
-                    "password" to password
+                    "password" to password,
+                    "age" to age,
+                    "gender" to gender,
+                    "contact" to contact,
+                    "address" to address,
+                    "location" to location,
+                    "suffering" to suffering
                 )
 
                 createAccount(email, password, user)
@@ -99,7 +119,7 @@ class Registration : AppCompatActivity() {
                     Log.w(ContentValues.TAG, "createUserWithEmail:failure", task.exception)
                     Toast.makeText(
                         baseContext,
-                        "Email already exist.",
+                        "Email already exist. $email",
                         Toast.LENGTH_SHORT,
                     ).show()
 //                        updateUI(null)

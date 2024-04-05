@@ -9,7 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import com.example.caretaker.databinding.FragmentApplcationsBinding
-import com.example.caretaker.databinding.FragmentSearchBinding
+
 
 class ApplicationsFragment : Fragment() {
     private lateinit var binding: FragmentApplcationsBinding

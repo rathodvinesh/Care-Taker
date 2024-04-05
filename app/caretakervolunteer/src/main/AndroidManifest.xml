@@ -9,6 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CareTaker">
         <activity
+            android:name=".Login_volunteer"
+            android:exported="false"
+            android:theme="@style/Theme.CareTaker" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
