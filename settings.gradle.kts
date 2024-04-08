@@ -22,4 +22,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Care Taker"
 include(":app")
-include(":app:caretakervolunteer")
+include(":app:volunteer")
