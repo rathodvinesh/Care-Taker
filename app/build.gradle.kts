@@ -59,7 +59,7 @@ dependencies {
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.0")
 
     implementation ("androidx.viewpager2:viewpager2:1.0.0")
-    implementation ("androidx.recyclerview:recyclerview:1.2.1")
+    implementation ("androidx.recyclerview:recyclerview:1.3.2")
 
     //navigation
     implementation ("androidx.navigation:navigation-fragment-ktx:2.7.7")

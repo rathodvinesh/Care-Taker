@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.caretaker.adapter.volunteerAdapter
 import com.example.caretaker.databinding.FragmentSearchBinding
 import com.example.caretaker.models.volunteerData
-import com.example.caretaker.models.volunteerData.fetchDataFromFirestore
 
 class SearchFragment : Fragment() {
 
@@ -25,7 +24,7 @@ class SearchFragment : Fragment() {
     ): View? {
         binding = FragmentSearchBinding.inflate(layoutInflater, container, false)
 
-        fetchDataFromFirestore()
+//        fetchDataFromFirestore()
 
         // Access RecyclerView through binding
         binding.recyclerView.apply {
