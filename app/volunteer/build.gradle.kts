@@ -5,21 +5,17 @@ plugins {
 }
 
 android {
-    namespace = "com.example.caretaker"
+    namespace = "com.example.caretakervolunteer"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.caretaker"
+        applicationId = "com.example.caretakervolunteer"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildFeatures{
-        viewBinding = true
     }
 
     buildTypes {
@@ -38,6 +34,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -47,14 +46,17 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.storage)
     implementation(libs.firebase.database.ktx)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+
     //image slider
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.0")
 
@@ -67,5 +69,4 @@ dependencies {
 
     //chip bottom bar
     implementation("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
-
 }

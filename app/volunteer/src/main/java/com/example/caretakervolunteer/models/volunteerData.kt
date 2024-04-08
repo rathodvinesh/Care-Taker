@@ -1,6 +1,6 @@
-package com.example.caretaker.models
+package com.example.caretakervolunteer.models
 
-import com.example.caretaker.data.Volunteer
+import com.example.caretakervolunteer.data.Volunteer
 import com.google.firebase.firestore.FirebaseFirestore
 
 object volunteerData {

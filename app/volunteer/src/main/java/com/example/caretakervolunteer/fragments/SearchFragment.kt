@@ -1,4 +1,4 @@
-package com.example.caretaker.fragments
+package com.example.caretakervolunteer.fragments
 
 import android.os.Build
 import android.os.Bundle
@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.caretaker.adapter.volunteerAdapter
-import com.example.caretaker.databinding.FragmentSearchBinding
-import com.example.caretaker.models.volunteerData
-import com.example.caretaker.models.volunteerData.fetchDataFromFirestore
+import com.example.caretakervolunteer.adapter.volunteerAdapter
+import com.example.caretakervolunteer.databinding.FragmentSearchBinding
+import com.example.caretakervolunteer.models.volunteerData
+import com.example.caretakervolunteer.models.volunteerData.fetchDataFromFirestore
 
 class SearchFragment : Fragment() {
 
