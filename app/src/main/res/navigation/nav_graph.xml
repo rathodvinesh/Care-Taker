@@ -9,25 +9,25 @@
         android:id="@+id/homeFragment"
         android:name="com.example.caretaker.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_volunteer_home" />
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.caretaker.fragments.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_volunteer_profile" />
+        tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/applicationsFragment"
         android:name="com.example.caretaker.fragments.ApplicationsFragment"
         android:label="fragment_applcations"
-        tools:layout="@layout/fragment_volunteer_applcations" />
+        tools:layout="@layout/fragment_applcations" />
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.caretaker.fragments.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_volunteer_search" />
+        tools:layout="@layout/fragment_search" />
     <activity
         android:id="@+id/mainActivity"
         android:name="com.example.caretaker.MainActivity"
         android:label="activity_main"
-        tools:layout="@layout/activity_volunteer_main" />
+        tools:layout="@layout/activity_main" />
 </navigation>

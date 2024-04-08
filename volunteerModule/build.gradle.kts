@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    id("com.google.gms.google-services")
 }
 
 android {
@@ -31,9 +30,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures{
-        viewBinding = true
-    }
 }
 
 dependencies {
@@ -43,25 +39,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.navigation.runtime.ktx)
-    implementation(libs.navigation.fragment.ktx)
-    implementation(libs.firebase.auth.ktx)
-    implementation(libs.firebase.firestore)
-    implementation(libs.firebase.database.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-    //image slider
-    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.0")
-
-    implementation ("androidx.viewpager2:viewpager2:1.0.0")
-    implementation ("androidx.recyclerview:recyclerview:1.2.1")
-
-    //navigation
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.7.7")
-    implementation( "androidx.navigation:navigation-ui-ktx:2.7.7")
-
-    //chip bottom bar
-    implementation("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
 }

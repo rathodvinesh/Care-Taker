@@ -79,6 +79,6 @@ class ProfileFragment : Fragment() {
     }
 
     companion object {
-        private const val TAG = "ProfileVolunteerFragment"
+        private const val TAG = "ProfileFragment"
     }
 }

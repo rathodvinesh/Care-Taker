@@ -38,7 +38,7 @@
             android:layout_height="match_parent"
             android:padding="5dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/recycler_view_item_volunteer" />
+            tools:listitem="@layout/recycler_view_item_client" />
 
 
     </FrameLayout>

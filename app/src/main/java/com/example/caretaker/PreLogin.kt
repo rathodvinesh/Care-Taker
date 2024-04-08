@@ -1,9 +1,15 @@
 package com.example.caretaker
 
+import android.content.ComponentName
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.caretaker.R
 import com.example.caretaker.databinding.ActivityPreLoginBinding
+import com.example.volunteermodule.VolunteerLogin
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -27,7 +33,7 @@ class PreLogin : AppCompatActivity() {
         }
 
         binding.volunteerLogin.setOnClickListener {
-            startActivity(Intent(this,Login::class.java))
+            startActivity(Intent(this,VolunteerLogin::class.java))
         }
 
 
