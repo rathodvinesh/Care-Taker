@@ -10,12 +10,12 @@
 
   <TextView
       android:id="@+id/textViewHeaderLogin"
-      android:layout_width="254dp"
-      android:layout_height="62dp"
+      android:layout_width="335dp"
+      android:layout_height="64dp"
       android:layout_marginStart="24dp"
       android:layout_marginTop="160dp"
       android:fontFamily="@font/inter_medium"
-      android:text="Login for client"
+      android:text="Login for Volunteer"
       android:textColor="@color/button_color"
       android:textSize="34sp"
       android:textStyle="bold"

@@ -26,13 +26,18 @@ class PreLogin : AppCompatActivity() {
 
 
         binding.clientLogin.setOnClickListener{
-            startActivity(Intent(this,Login::class.java))
-            finish()
+            val intent = Intent().apply {
+                // Set the component name of the intent to the destination activity in the other module
+                // Replace com.example.othermodule.DestinationActivity with the package name and class name of your destination activity
+                component = ComponentName("com.example.caretaker", "com.example.caretaker.Login")
+            }
+            // Start the activity in the destination module
+            startActivity(intent)
         }
 
-//        binding.volunteerLogin.setOnClickListener{
-//            startActivity(Intent(this,LoginVolunteer::class.java))
-//        }
+        binding.volunteerLogin.setOnClickListener{
+            startActivity(Intent(this,Login::class.java))
+        }
 
 
     }
