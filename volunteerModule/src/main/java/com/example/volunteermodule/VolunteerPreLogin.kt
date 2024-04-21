@@ -19,8 +19,6 @@ class VolunteerPreLogin : AppCompatActivity() {
 
         auth = Firebase.auth
 
-
-
         binding.clientLogin.setOnClickListener{
             startActivity(Intent(this,VolunteerLogin::class.java))
             finish()

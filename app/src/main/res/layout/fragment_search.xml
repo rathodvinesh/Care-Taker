@@ -11,8 +11,6 @@
         android:backgroundTint="@color/button_color"
         tools:context=".fragments.SearchFragment">
 
-        <!-- TODO: Update blank fragment layout -->
-
         <EditText
             android:id="@+id/textView28"
             android:layout_width="394dp"
@@ -31,11 +29,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- TODO: Update blank fragment layout -->
+
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="70dp"
             android:padding="5dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/recycler_view_item_client" />

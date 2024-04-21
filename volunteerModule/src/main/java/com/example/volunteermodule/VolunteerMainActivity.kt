@@ -24,7 +24,7 @@ class VolunteerMainActivity : AppCompatActivity() {
         binding.bottomNavigation.setOnItemSelectedListener {
             when (it) {
                 R.id.bottom_home -> navController.navigate(R.id.homeFragment)
-                R.id.bottom_search -> navController.navigate(R.id.searchFragment)
+//                R.id.bottom_search -> navController.navigate(R.id.searchFragment)
                 R.id.bottom_view -> navController.navigate(R.id.applicationsFragment)
                 R.id.bottom_profile -> navController.navigate(R.id.profileFragment)
                 else -> navController.navigate(R.id.homeFragment)

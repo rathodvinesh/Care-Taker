@@ -87,7 +87,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/shiftTV"
         android:layout_width="45dp"
         android:layout_height="25dp"
@@ -96,7 +96,6 @@
 
         android:ems="10"
         android:fontFamily="@font/inter_medium"
-        android:inputType="text"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

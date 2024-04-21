@@ -25,7 +25,7 @@ class SearchFragment : Fragment() {
     ): View? {
         binding = FragmentSearchBinding.inflate(layoutInflater, container, false)
 
-        fetchDataFromFirestore()
+//        fetchDataFromFirestore()
 
         // Access RecyclerView through binding
         binding.recyclerView.apply {

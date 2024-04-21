@@ -87,7 +87,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/shiftTV"
         android:layout_width="45dp"
         android:layout_height="25dp"
@@ -213,7 +213,7 @@
         android:layout_marginTop="140dp"
         android:backgroundTint="@color/button_color"
         android:fontFamily="@font/inter_medium"
-        android:text="@string/profile"
+        android:text="profile"
         android:textColor="@color/white"
         android:textColorLink="#2196F3"
         android:textSize="16sp"

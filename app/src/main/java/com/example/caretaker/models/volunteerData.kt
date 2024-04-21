@@ -9,12 +9,12 @@ object volunteerData {
 
     // Function to fetch data from Firestore and populate volunteers list
     fun fetchDataFromFirestore() {
-        db.collection("VOLUNTEERS")
+        db.collection("CLIENTS")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
                     val name = document.getString("name") ?: ""
-                    val age = document.getLong("age")?.toInt() ?: 0
+                    val age = document.getString("age")?.toInt() ?:""
                     val gender = document.getString("gender") ?: ""
                     val contact = document.getString("contact") ?: ""
                     val service = document.getString("service") ?: ""
