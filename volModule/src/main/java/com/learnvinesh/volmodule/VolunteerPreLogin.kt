@@ -1,35 +1,31 @@
-package com.example.caretaker
+package com.learnvinesh.volmodule
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.caretaker.databinding.ActivityPreLoginBinding
-import com.learnvinesh.volmodule.VolunteerLogin
+import com.learnvinesh.volmodule.databinding.ActivityVolunteerPreLoginBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 
-class PreLogin : AppCompatActivity() {
+class VolunteerPreLogin : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-    private lateinit var binding : ActivityPreLoginBinding
+    private lateinit var binding : ActivityVolunteerPreLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_home)
-        binding = ActivityPreLoginBinding.inflate(layoutInflater)
+        binding = ActivityVolunteerPreLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         auth = Firebase.auth
 
-
-
         binding.clientLogin.setOnClickListener{
-            startActivity(Intent(this,Login::class.java))
+            startActivity(Intent(this, VolunteerLogin::class.java))
             finish()
         }
 
         binding.volunteerLogin.setOnClickListener {
             startActivity(Intent(this, VolunteerLogin::class.java))
-            finish()
         }
 
 
@@ -43,7 +39,7 @@ class PreLogin : AppCompatActivity() {
     }
 
     private fun reload() {
-        val intent = Intent(this,MainActivity::class.java)
+        val intent = Intent(this, VolunteerMainActivity::class.java)
         startActivity(intent)
         finish()
     }

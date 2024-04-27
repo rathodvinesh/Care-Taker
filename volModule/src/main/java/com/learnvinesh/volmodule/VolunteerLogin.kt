@@ -1,4 +1,4 @@
-package com.example.caretaker
+package com.learnvinesh.volmodule
 
 import android.content.ContentValues
 import android.content.Intent
@@ -9,20 +9,20 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.caretaker.R
-import com.example.caretaker.databinding.ActivityLoginBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import com.learnvinesh.volmodule.databinding.ActivityVolunteerLoginBinding
 
-class Login : AppCompatActivity() {
+class VolunteerLogin : AppCompatActivity() {
+
     private lateinit var auth: FirebaseAuth
-    private lateinit var binding: ActivityLoginBinding
+    private lateinit var binding: ActivityVolunteerLoginBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_loginpage)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityVolunteerLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         //firebase declaration
@@ -56,12 +56,11 @@ class Login : AppCompatActivity() {
 
         signUpBtn.setOnClickListener {
 //            createAccount(email,password)
-            val intent = Intent(this,Registration::class.java)
+            val intent = Intent(this, VolunteerRegistration::class.java)
             startActivity(intent)
             finish()
         }
     }
-
 
     private fun signIn(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
@@ -74,7 +73,7 @@ class Login : AppCompatActivity() {
                         "Signed In. $email",
                         Toast.LENGTH_SHORT,
                     ).show()
-                    val intent = Intent(this,MainActivity::class.java)
+                    val intent = Intent(this, VolunteerMainActivity::class.java)
                     startActivity(intent)
                     finish()
 //                    val user = auth.currentUser
@@ -91,4 +90,5 @@ class Login : AppCompatActivity() {
                 }
             }
     }
+
 }
