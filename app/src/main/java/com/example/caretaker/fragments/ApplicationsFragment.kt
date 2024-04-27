@@ -1,28 +1,81 @@
 package com.example.caretaker.fragments
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.caretaker.adapter.VolunteerApplicationsAdapter
 import com.example.caretaker.databinding.FragmentApplcationsBinding
+import com.example.caretaker.models.VolunteerApplication
+import com.google.firebase.firestore.DocumentChange
+import com.google.firebase.firestore.EventListener
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.firestore.toObject
 
 class ApplicationsFragment : Fragment() {
     private lateinit var binding: FragmentApplcationsBinding
-    private lateinit var navController: NavController
+    private lateinit var adapter: VolunteerApplicationsAdapter
+    private lateinit var db: FirebaseFirestore
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var volAppliArrayList:ArrayList<VolunteerApplication>
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         binding = FragmentApplcationsBinding.inflate(layoutInflater, container, false)
 
 
+        recyclerView = binding.rvAppli
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.setHasFixedSize(true)
+
+        volAppliArrayList = arrayListOf()
+
+        adapter = VolunteerApplicationsAdapter(volAppliArrayList)
+
+        EventChangeListner()
+
         return binding.root
+    }
+
+    private fun EventChangeListner() {
+        db = FirebaseFirestore.getInstance()
+        db.collection("VOLUNTEERS").
+        addSnapshotListener(object : EventListener<QuerySnapshot> {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onEvent(
+                value: QuerySnapshot?,
+                error: FirebaseFirestoreException?
+            ) {
+                if(error!=null){
+                    Log.e("Firestore error: ",error.message.toString())
+                    return
+                }
+                for(dc: DocumentChange in value?.documentChanges!!){
+                    if(dc.type == DocumentChange.Type.ADDED){
+                        if (dc.document.toObject(VolunteerApplication::class.java).hireStatus != "Un-Hired") {
+                            volAppliArrayList.add(dc.document.toObject(VolunteerApplication::class.java))
+                        }
+                    }
+                }
+                Log.d("datahere", volAppliArrayList.toString())
+                adapter.notifyDataSetChanged()
+//                        adapter.notifyItemInserted(volArrayList.size-1)
+                recyclerView.adapter=adapter
+            }
+
+        })
     }
 }
 

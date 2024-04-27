@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="468dp"
-        android:layout_height="248dp"
+        android:layout_width="403dp"
+        android:layout_height="238dp"
         android:visibility="visible"
         app:cardCornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,8 +45,8 @@
 
         <TextView
             android:id="@+id/amountTV"
-            android:layout_width="275dp"
-            android:layout_height="20dp"
+            android:layout_width="239dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="170dp"
             android:layout_marginTop="140dp"
 
@@ -63,8 +64,8 @@
 
         <TextView
             android:id="@+id/serviceTV"
-            android:layout_width="98dp"
-            android:layout_height="20dp"
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="195dp"
             android:layout_marginTop="100dp"
 
@@ -86,8 +87,8 @@
 
         <TextView
             android:id="@+id/genderTV"
-            android:layout_width="145dp"
-            android:layout_height="25dp"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="300dp"
             android:layout_marginTop="60dp"
 
@@ -125,7 +126,7 @@
 
         <TextView
             android:id="@+id/nameTV"
-            android:layout_width="266dp"
+            android:layout_width="225dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="180dp"
             android:layout_marginTop="20dp"
@@ -216,8 +217,8 @@
 
         <Button
             android:id="@+id/acceptBtn"
-            android:layout_width="129dp"
-            android:layout_height="60dp"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="170dp"
             android:layout_marginTop="180dp"
             android:backgroundTint="@color/button_color"
@@ -231,8 +232,8 @@
 
         <Button
             android:id="@+id/rejectBtn"
-            android:layout_width="129dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="310dp"
             android:layout_marginTop="180dp"
             android:backgroundTint="@color/button_color"

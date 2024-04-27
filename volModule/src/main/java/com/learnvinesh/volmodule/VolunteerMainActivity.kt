@@ -37,8 +37,8 @@ class VolunteerMainActivity : AppCompatActivity() {
     }
 
     private fun setUpFragment() {
-        binding.bottomNavigation.setItemSelected(R.id.bottom_home)
-        binding.bottomNavigation.setOnItemSelectedListener {
+        binding.bottomNavigationVolunteer.setItemSelected(R.id.bottom_home)
+        binding.bottomNavigationVolunteer.setOnItemSelectedListener {
             when(it){
                 R.id.bottom_home ->replaceFragment(HomeVolunteerFragment())
 //                R.id.bottom_search ->replaceFragment(SearchFragment())

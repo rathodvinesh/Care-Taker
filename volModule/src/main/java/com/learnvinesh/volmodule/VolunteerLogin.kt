@@ -1,6 +1,7 @@
 package com.learnvinesh.volmodule
 
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -73,6 +74,13 @@ class VolunteerLogin : AppCompatActivity() {
                         "Signed In. $email",
                         Toast.LENGTH_SHORT,
                     ).show()
+
+                    val sharedPref = getSharedPreferences("careTaker", Context.MODE_PRIVATE)
+
+                    val editor = sharedPref.edit()
+                    editor.putString("userType", "volunteer")
+                    editor.apply()
+
                     val intent = Intent(this, VolunteerMainActivity::class.java)
                     startActivity(intent)
                     finish()

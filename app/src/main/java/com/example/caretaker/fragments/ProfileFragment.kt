@@ -1,5 +1,6 @@
 package com.example.caretaker.fragments
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -35,6 +36,10 @@ class ProfileFragment : Fragment() {
         }
 
         binding.logOutBtn.setOnClickListener {
+            val shared = requireActivity().getSharedPreferences("careTaker", Context.MODE_PRIVATE)
+            val editor = shared.edit()
+            editor.putString("userType", "")
+            editor.apply()
             auth.signOut()
             activity?.finish()
             startActivity(Intent(this.context, PreLogin::class.java))

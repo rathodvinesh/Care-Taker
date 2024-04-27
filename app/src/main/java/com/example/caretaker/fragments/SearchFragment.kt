@@ -46,6 +46,8 @@ class SearchFragment : Fragment() {
 
         EventChangeListner()
 
+
+
         return binding.root
     }
 
@@ -73,6 +75,8 @@ class SearchFragment : Fragment() {
                     }
 
                 })
+
+        
     }
 }
 

@@ -1,7 +1,9 @@
 package com.example.caretaker
 
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -74,6 +76,12 @@ class Login : AppCompatActivity() {
                         "Signed In. $email",
                         Toast.LENGTH_SHORT,
                     ).show()
+                    val sharedPref = getSharedPreferences("careTaker", Context.MODE_PRIVATE)
+
+                    val editor = sharedPref.edit()
+                    editor.putString("userType", "client")
+                    editor.apply()
+
                     val intent = Intent(this,MainActivity::class.java)
                     startActivity(intent)
                     finish()

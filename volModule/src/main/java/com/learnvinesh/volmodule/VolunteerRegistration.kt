@@ -39,11 +39,11 @@ class VolunteerRegistration : AppCompatActivity() {
             val service = binding.editTextService.text.toString()
             val amount = binding.editTextAmount.text.toString()
 
-//                    && name.isNotEmpty() && username.isNotEmpty()
-//                    && age.isNotEmpty() && gender.isNotEmpty() && contact.isNotEmpty() && address.isNotEmpty()
-//                    && location.isNotEmpty() && shift.isNotEmpty() && service.isNotEmpty() && amount.isNotEmpty()
 
-            if (email.isNotEmpty() && password.isNotEmpty()) {
+
+            if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && username.isNotEmpty()
+                && age.isNotEmpty() && gender.isNotEmpty() && contact.isNotEmpty() && address.isNotEmpty()
+                && location.isNotEmpty() && shift.isNotEmpty() && service.isNotEmpty() && amount.isNotEmpty()) {
                 createUserWithEmailAndPassword(email, password, name, username, age, gender, contact, address, location,shift,service,amount)
             } else {
                 Toast.makeText(baseContext, "Please fill in all the fields", Toast.LENGTH_SHORT).show()
@@ -63,6 +63,8 @@ class VolunteerRegistration : AppCompatActivity() {
                 if (task.isSuccessful) {
                     val firebaseUser = auth.currentUser
                     val uid = firebaseUser?.uid ?: ""
+                    val hireStatus = "Un-Hired"
+                    val role="Volunteer"
 
                     val user = hashMapOf(
                         "name" to name,
@@ -77,7 +79,9 @@ class VolunteerRegistration : AppCompatActivity() {
                         "shift" to shift,
                         "service" to service,
                         "amount" to amount,
-                        "uid" to uid
+                        "uid" to uid,
+                        "hireStatus" to hireStatus,
+                        "role" to role
                     )
 
                     db.collection("VOLUNTEERS")
@@ -90,7 +94,8 @@ class VolunteerRegistration : AppCompatActivity() {
                         }
 
                     Toast.makeText(baseContext, "Account created Successfully.", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, VolunteerMainActivity::class.java))
+                    auth.signOut()
+                    startActivity(Intent(this, VolunteerLogin::class.java))
                     finish()
                 } else {
                     Log.w(ContentValues.TAG, "createUserWithEmail:failure", task.exception)

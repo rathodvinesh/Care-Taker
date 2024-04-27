@@ -59,6 +59,7 @@ class Registration : AppCompatActivity() {
                 if (task.isSuccessful) {
                     val firebaseUser = auth.currentUser
                     val uid = firebaseUser?.uid ?: ""
+                    val role = "Client"
 
                     val user = hashMapOf(
                         "name" to name,
@@ -71,7 +72,8 @@ class Registration : AppCompatActivity() {
                         "address" to address,
                         "location" to location,
                         "suffering" to suffering,
-                        "uid" to uid
+                        "uid" to uid,
+                        "role" to role
                     )
 
                     db.collection("CLIENTS")
@@ -84,7 +86,7 @@ class Registration : AppCompatActivity() {
                         }
 
                     Toast.makeText(baseContext, "Account created Successfully.", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, MainActivity::class.java))
+                    startActivity(Intent(this, Login::class.java))
                     finish()
                 } else {
                     Log.w(ContentValues.TAG, "createUserWithEmail:failure", task.exception)
