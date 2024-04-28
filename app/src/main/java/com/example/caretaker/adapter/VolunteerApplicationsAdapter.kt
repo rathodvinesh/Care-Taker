@@ -1,18 +1,23 @@
 package com.example.caretaker.adapter
 
+import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.compose.ui.layout.Layout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.caretaker.R
 import com.example.caretaker.models.VolunteerApplication
 
 class VolunteerApplicationsAdapter(var volApplis:ArrayList<VolunteerApplication>):RecyclerView.Adapter<VolunteerApplicationsAdapter.VolunteerApplicationViewHolder>() {
     inner class VolunteerApplicationViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
-        val nameTV = itemView.findViewById<TextView>(R.id.etName)
+        var nameTV = itemView.findViewById<TextView>(R.id.etName)
+        var statusImage = itemView.findViewById<ImageView>(R.id.ivApplication)
+        var statusText = itemView.findViewById<TextView>(R.id.statusTextApplication)
     }
 
     override fun onCreateViewHolder(
@@ -28,7 +33,17 @@ class VolunteerApplicationsAdapter(var volApplis:ArrayList<VolunteerApplication>
         position: Int
     ) {
         val curPosition = volApplis[position]
-        holder.nameTV.text = curPosition.name
+
+        if (curPosition.hireStatus == "Pending") {
+            holder.nameTV.text = curPosition.name
+            holder.statusText.text = "Pending"
+            holder.statusImage.setImageDrawable(holder.itemView.context.resources.getDrawable(R.drawable.baseline_error_outline_24))
+            holder.statusImage.setColorFilter(ContextCompat.getColor(holder.itemView.context, R.color.pending_yellow), PorterDuff.Mode.SRC_IN)
+            holder.statusText.setTextColor(holder.itemView.context.resources.getColor(R.color.pending_yellow))
+        } else {
+            holder.nameTV.text = curPosition.name
+        }
+
     }
 
     override fun getItemCount(): Int {

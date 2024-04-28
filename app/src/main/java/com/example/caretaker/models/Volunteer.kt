@@ -7,5 +7,6 @@ data class Volunteer(
     var contact: String?=null,
     var service: String?=null,
     var amount: String?=null,
-    var status:String?=null
+    var hireStatus:String?=null,
+    var uid: String? = null
 )
