@@ -1,5 +1,6 @@
 package com.example.caretaker.adapter
 
+import android.annotation.SuppressLint
 import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
@@ -28,6 +29,7 @@ class VolunteerApplicationsAdapter(var volApplis:ArrayList<VolunteerApplication>
         return  VolunteerApplicationViewHolder(view)
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(
         holder: VolunteerApplicationsAdapter.VolunteerApplicationViewHolder,
         position: Int

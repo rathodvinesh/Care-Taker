@@ -60,11 +60,13 @@ class ProfileVolunteerFragment : Fragment() {
                     val gender = document.getString("gender")
                     val address = document.getString("address")
                     val location = document.getString("location")
-                    val ailment = document.getString("suffering")
+                    val service = document.getString("service")
+                    val shift = document.getString("shift")
+                    val amount = document.getString("amount")
 
 
                     // Populate the UI with the retrieved data
-                    populateProfileData(firstName, age, gender, phone, address, location, ailment)
+                    populateProfileData(firstName, age, gender, phone, address, location, service,shift,amount)
                 }
             }
             .addOnFailureListener { exception ->
@@ -72,14 +74,16 @@ class ProfileVolunteerFragment : Fragment() {
             }
     }
 
-    private fun populateProfileData(name: String?, age: String?, gender: String?, phone: String?, address: String?, location: String?, ailment: String?) {
+    private fun populateProfileData(name: String?, age: String?, gender: String?, phone: String?, address: String?, location: String?, service: String?,shift:String?,amount:String?) {
         name?.let { binding.nameText.text = it }
         age?.let { binding.ageText.text = it }
         gender?.let { binding.genderText.text = it }
         phone?.let { binding.phoneText.text = it }
         address?.let { binding.postalAddressText.text = it }
         location?.let { binding.locationText.text = it }
-        ailment?.let { binding.sufferingText.text = it }
+        service?.let { binding.servicetext.text = it }
+        shift?.let { binding.shiftText.text = it }
+        amount?.let { binding.amountText.text = it }
     }
 
     companion object {

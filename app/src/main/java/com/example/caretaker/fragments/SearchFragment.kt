@@ -69,7 +69,7 @@ class SearchFragment : Fragment() {
                                 volArrayList.add(dc.document.toObject(Volunteer::class.java))
                             }
                         }
-                        adapter.notifyDataSetChanged()
+//                        adapter.notifyDataSetChanged()
 //                        adapter.notifyItemInserted(volArrayList.size-1)
                         recyclerView.adapter=adapter
                     }
