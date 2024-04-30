@@ -15,7 +15,8 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:background="@color/white"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView9"
@@ -226,29 +227,11 @@
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="200dp"
+                android:layout_marginStart="190dp"
                 android:layout_marginTop="380dp"
                 android:fontFamily="@font/source_serif_pro_bold"
                 android:text="Gender:"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/editTextGender"
-                android:layout_width="90dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="270dp"
-                android:layout_marginTop="365dp"
-                android:background="@drawable/text_shape"
-                android:ems="10"
-                android:fontFamily="@font/source_serif_pro"
-                android:hint="Gender"
-                android:inputType="text"
-                android:textAlignment="center"
-                android:textColor="@color/button_color"
-                android:textColorHint="@color/button_color"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -258,7 +241,7 @@
                 android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="515dp"
+                android:layout_marginTop="505dp"
                 android:fontFamily="@font/source_serif_pro_bold"
                 android:text="Contact:"
                 android:textAlignment="center"
@@ -272,7 +255,7 @@
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="125dp"
-                android:layout_marginTop="500dp"
+                android:layout_marginTop="490dp"
                 android:background="@drawable/text_shape"
                 android:ems="10"
                 android:fontFamily="@font/source_serif_pro"
@@ -383,6 +366,30 @@
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="270dp"
+                android:layout_marginTop="420dp"
+                android:buttonTint="@color/button_color"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="Female"
+                android:textColor="@color/button_color"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/radioButtonmale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="270dp"
+                android:layout_marginTop="370dp"
+                android:buttonTint="@color/button_color"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="Male"
+                android:textColor="@color/button_color"
+                android:textSize="20sp" />
         </FrameLayout>
     </ScrollView>
 

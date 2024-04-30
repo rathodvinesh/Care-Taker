@@ -37,6 +37,7 @@
             android:layout_marginTop="15dp"
             android:fontFamily="@font/source_serif_pro_bold"
             android:text="Name:"
+            android:textColor="@color/button_color"
             android:textSize="20sp" />
 
         <TextView

@@ -33,7 +33,7 @@
             android:id="@+id/textView42"
             android:layout_width="65dp"
             android:layout_height="20dp"
-            android:layout_marginStart="220dp"
+            android:layout_marginStart="230dp"
             android:layout_marginTop="140dp"
             android:fontFamily="@font/source_serif_pro_bold"
             android:text="Amount:"
@@ -46,10 +46,10 @@
             android:id="@+id/amountTV"
             android:layout_width="70dp"
             android:layout_height="20dp"
-            android:layout_marginStart="290dp"
+            android:layout_marginStart="305dp"
             android:layout_marginTop="140dp"
-
             android:fontFamily="@font/source_serif_pro"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,7 +63,7 @@
 
         <TextView
             android:id="@+id/serviceTV"
-            android:layout_width="70dp"
+            android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_marginStart="190dp"
             android:layout_marginTop="100dp"
@@ -92,13 +92,13 @@
             android:layout_marginTop="60dp"
 
             android:fontFamily="@font/source_serif_pro"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/shiftTV"
-            android:layout_width="45dp"
+            android:layout_width="55dp"
             android:layout_height="25dp"
             android:layout_marginStart="165dp"
             android:layout_marginTop="140dp"
@@ -106,7 +106,7 @@
             android:ems="10"
             android:fontFamily="@font/source_serif_pro"
             android:inputType="text"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -207,7 +207,7 @@
             android:layout_marginTop="60dp"
 
             android:fontFamily="@font/source_serif_pro"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

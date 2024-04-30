@@ -41,6 +41,7 @@
         android:layout_marginTop="170dp"
 
         android:fontFamily="@font/source_serif_pro"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
