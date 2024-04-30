@@ -12,7 +12,7 @@
         android:layout_height="70dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/inter_medium"
+        android:fontFamily="@font/source_serif_pro_bold"
         android:gravity="center"
         android:text="Notification"
         android:textColor="@color/button_color"

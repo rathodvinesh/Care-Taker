@@ -34,8 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/inter_medium"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/source_serif_pro_bold"
             android:text="Name:"
             android:textSize="20sp" />
 
@@ -45,20 +45,22 @@
             android:layout_height="30dp"
             android:layout_marginStart="130dp"
             android:layout_marginTop="60dp"
+            android:fontFamily="@font/source_serif_pro_bold"
             android:text="Request Accepted"
             android:textColor="#219526"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <EditText
+        <TextView
             android:id="@+id/etName"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="170dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:ems="10"
+            android:fontFamily="@font/source_serif_pro"
             android:inputType="text"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
