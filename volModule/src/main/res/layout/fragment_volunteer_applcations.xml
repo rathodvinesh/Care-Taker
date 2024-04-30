@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/inter_medium"
+        android:fontFamily="@font/source_serif_pro_bold"
         android:gravity="center"
         android:text="Client Applications"
         android:textColor="@color/button_color"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro_bold"
             android:text="Name:"
             android:textSize="16sp" />
 
@@ -58,6 +58,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="130dp"
             android:layout_marginTop="50dp"
+            android:fontFamily="@font/source_serif_pro_bold"
             android:text="Request Accepted"
             android:textColor="#219526"
             android:textSize="20sp"
@@ -66,10 +67,11 @@
         <EditText
             android:id="@+id/editTextText2"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="20dp"
             android:layout_marginStart="160dp"
             android:layout_marginTop="10dp"
             android:ems="10"
+            android:fontFamily="@font/source_serif_pro"
             android:inputType="text"
             android:textSize="16sp" />
     </androidx.cardview.widget.CardView>
@@ -102,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro"
             android:text="Name:"
             android:textSize="16sp" />
 
@@ -112,18 +114,20 @@
             android:layout_height="30dp"
             android:layout_marginStart="130dp"
             android:layout_marginTop="50dp"
+            android:fontFamily="@font/source_serif_pro_bold"
             android:text="Request Declined"
             android:textColor="#F44336"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/editTextText3"
+        <TextView
+            android:id="@+id/TextView3"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="20sp"
             android:layout_marginStart="160dp"
             android:layout_marginTop="10dp"
             android:ems="10"
+            android:fontFamily="@font/source_serif_pro"
             android:inputType="text"
             android:textSize="16sp" />
     </androidx.cardview.widget.CardView>

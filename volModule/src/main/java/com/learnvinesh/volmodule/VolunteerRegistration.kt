@@ -1,9 +1,11 @@
 package com.learnvinesh.volmodule
 
+import android.R
 import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.learnvinesh.volmodule.databinding.ActivityVolunteerRegistrationBinding
@@ -25,26 +27,38 @@ class VolunteerRegistration : AppCompatActivity() {
 
         auth = Firebase.auth
 
+        // Define arrays for spinner options
+        val shifts = arrayOf("Day", "Night")
+        val services = arrayOf("Voluntarily", "Charged")
+
+        // Create ArrayAdapter instances for each spinner
+        val shiftAdapter = ArrayAdapter(this, R.layout.simple_spinner_dropdown_item, shifts)
+        val serviceAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, services)
+
+        // Set the adapters to the Spinners
+        binding.spinnerShift.adapter = shiftAdapter
+        binding.spinnerService.adapter = serviceAdapter
+
         binding.signUpBtnReg.setOnClickListener {
             val email = binding.editTextEmailAddress.text.toString()
             val password = binding.editTextPassword.text.toString()
             val name = binding.editTextName.text.toString()
-            val username = binding.editTextUsername.text.toString()
             val age = binding.editTextAge.text.toString()
             val gender = binding.editTextGender.text.toString()
             val contact = binding.editTextPhone.text.toString()
             val address = binding.editTextPostalAddress.text.toString()
             val location = binding.editTextLocation.text.toString()
-            val shift = binding.editTextShift.text.toString()
-            val service = binding.editTextService.text.toString()
             val amount = binding.editTextAmount.text.toString()
+            val description = binding.editTextDescription.text.toString()
 
+            // Retrieve selected values from the Spinners
+            val shift = binding.spinnerShift.selectedItem.toString()
+            val service = binding.spinnerService.selectedItem.toString()
 
-
-            if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && username.isNotEmpty()
+            if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && description.isNotEmpty()
                 && age.isNotEmpty() && gender.isNotEmpty() && contact.isNotEmpty() && address.isNotEmpty()
                 && location.isNotEmpty() && shift.isNotEmpty() && service.isNotEmpty() && amount.isNotEmpty()) {
-                createUserWithEmailAndPassword(email, password, name, username, age, gender, contact, address, location,shift,service,amount)
+                createUserWithEmailAndPassword(email, password, name, description, age, gender, contact, address, location,shift,service,amount)
             } else {
                 Toast.makeText(baseContext, "Please fill in all the fields", Toast.LENGTH_SHORT).show()
             }
@@ -57,7 +71,8 @@ class VolunteerRegistration : AppCompatActivity() {
         }
     }
 
-    private fun createUserWithEmailAndPassword(email: String, password: String, name: String, username: String, age: String, gender: String, contact: String, address: String, location: String, shift: String,service:String,amount:String) {
+
+    private fun createUserWithEmailAndPassword(email: String, password: String, name: String, age: String, gender: String, contact: String, address: String, location: String, shift: String,service:String,amount:String, description: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -68,7 +83,6 @@ class VolunteerRegistration : AppCompatActivity() {
 
                     val user = hashMapOf(
                         "name" to name,
-                        "username" to username,
                         "email" to email,
                         "password" to password,
                         "age" to age,
@@ -81,7 +95,8 @@ class VolunteerRegistration : AppCompatActivity() {
                         "amount" to amount,
                         "uid" to uid,
                         "hireStatus" to hireStatus,
-                        "role" to role
+                        "role" to role,
+                        "description" to description
                     )
 
                     db.collection("VOLUNTEERS")

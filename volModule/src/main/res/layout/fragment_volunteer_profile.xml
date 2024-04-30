@@ -16,7 +16,7 @@
             android:layout_marginStart="110dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="109dp"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro_bold"
             android:gravity="center_horizontal"
             android:paddingTop="3sp"
             android:text="Profile"
@@ -41,7 +41,7 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="215dp"
             android:backgroundTint="@color/button_color"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro_bold"
             android:text="Update Profile"
             android:textAlignment="center"
             android:textAllCaps="false"
@@ -59,11 +59,11 @@
             android:layout_marginStart="120dp"
             android:layout_marginTop="280dp"
             android:ems="10"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro"
             android:paddingStart="10sp"
             android:paddingTop="5sp"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,12 +73,12 @@
             android:layout_height="30dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="285dp"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro"
             android:paddingTop="4sp"
             android:text="Name:"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,12 +88,12 @@
             android:layout_height="30dp"
             android:layout_marginStart="55dp"
             android:layout_marginTop="355dp"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro"
             android:paddingTop="2sp"
             android:text="Age:"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,13 +104,13 @@
             android:layout_marginStart="110dp"
             android:layout_marginTop="350dp"
             android:ems="10"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro"
             android:paddingStart="5dp"
             android:paddingTop="5dp"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textColorHint="@color/stroke_for_button"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -125,9 +125,19 @@
             android:paddingTop="5dp"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView39"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="145dp"
+            android:layout_marginTop="830dp"
+            android:fontFamily="@font/source_serif_pro"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/phoneText"
@@ -140,7 +150,7 @@
             android:paddingStart="10sp"
             android:paddingTop="5dp"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -150,12 +160,12 @@
             android:layout_height="30dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="425dp"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro"
             android:paddingTop="4sp"
             android:text="Contact:"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -165,12 +175,12 @@
             android:layout_height="30dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="495dp"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro"
             android:paddingTop="4sp"
             android:text="Address:"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -181,12 +191,12 @@
             android:layout_marginStart="125dp"
             android:layout_marginTop="490dp"
             android:ems="10"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro"
             android:paddingStart="5sp"
             android:paddingTop="6sp"
             android:textAlignment="viewStart"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -197,11 +207,11 @@
             android:layout_marginStart="125dp"
             android:layout_marginTop="570dp"
             android:ems="10"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro"
             android:paddingStart="5sp"
             android:paddingTop="5sp"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -212,12 +222,12 @@
             android:layout_marginStart="125dp"
             android:layout_marginTop="640dp"
             android:ems="10"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro"
             android:gravity="start|top"
             android:paddingStart="10sp"
             android:paddingTop="5sp"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -227,14 +237,14 @@
             android:layout_height="30dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="765dp"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro"
             android:paddingTop="4sp"
             android:text="Amount:"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView22"
@@ -242,12 +252,12 @@
             android:layout_height="30dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="575dp"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro"
             android:paddingTop="4sp"
             android:text="Location:"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -257,13 +267,13 @@
             android:layout_height="40dp"
             android:layout_marginStart="125dp"
             android:layout_marginTop="760dp"
+            android:ems="10"
+            android:fontFamily="@font/source_serif_pro"
+            android:gravity="start|top"
             android:paddingStart="10sp"
             android:paddingTop="5sp"
-            android:ems="10"
-            android:fontFamily="@font/inter_medium"
-            android:gravity="start|top"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -274,12 +284,12 @@
             android:layout_height="30dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="705dp"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro"
             android:paddingTop="4sp"
             android:text="Service:"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />/>
 
@@ -289,13 +299,13 @@
             android:layout_height="40dp"
             android:layout_marginStart="125dp"
             android:layout_marginTop="700dp"
+            android:ems="10"
+            android:fontFamily="@font/source_serif_pro"
+            android:gravity="start|top"
             android:paddingStart="10sp"
             android:paddingTop="5sp"
-            android:ems="10"
-            android:fontFamily="@font/inter_medium"
-            android:gravity="start|top"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -305,12 +315,12 @@
             android:layout_height="30dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="645dp"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro"
             android:paddingTop="4sp"
             android:text="Shift:"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -320,23 +330,35 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="200dp"
             android:layout_marginTop="355dp"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro"
             android:text="Gender:"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="830dp"
+            android:fontFamily="@font/source_serif_pro"
+            android:text="Description:"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/logOutBtn"
             android:layout_width="288dp"
             android:layout_height="50dp"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="820dp"
+            android:layout_marginTop="900dp"
             android:layout_marginEnd="100dp"
             android:layout_marginBottom="40dp"
             android:backgroundTint="@color/button_color"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/source_serif_pro_bold"
             android:text="Logout"
             android:textAlignment="center"
             android:textAllCaps="false"

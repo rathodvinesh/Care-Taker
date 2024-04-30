@@ -29,7 +29,6 @@ class Registration : AppCompatActivity() {
             val email = binding.editTextEmailAddress.text.toString()
             val password = binding.editTextPassword.text.toString()
             val name = binding.editTextName.text.toString()
-            val username = binding.editTextUsername.text.toString()
             val age = binding.editTextAge.text.toString()
             val gender = binding.editTextGender.text.toString()
             val contact = binding.editTextPhone.text.toString()
@@ -37,10 +36,10 @@ class Registration : AppCompatActivity() {
             val location = binding.editTextLocation.text.toString()
             val suffering = binding.editTextAilment.text.toString()
 
-            if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && username.isNotEmpty()
-                && age.isNotEmpty() && gender.isNotEmpty() && contact.isNotEmpty() && address.isNotEmpty()
+            if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && age.isNotEmpty()
+                && gender.isNotEmpty() && contact.isNotEmpty() && address.isNotEmpty()
                 && location.isNotEmpty() && suffering.isNotEmpty()) {
-                createUserWithEmailAndPassword(email, password, name, username, age, gender, contact, address, location, suffering)
+                createUserWithEmailAndPassword(email, password, name, age, gender, contact, address, location, suffering)
             } else {
                 Toast.makeText(baseContext, "Please fill in all the fields", Toast.LENGTH_SHORT).show()
             }
@@ -53,7 +52,7 @@ class Registration : AppCompatActivity() {
         }
     }
 
-    private fun createUserWithEmailAndPassword(email: String, password: String, name: String, username: String, age: String, gender: String, contact: String, address: String, location: String, suffering: String) {
+    private fun createUserWithEmailAndPassword(email: String, password: String, name: String, age: String, gender: String, contact: String, address: String, location: String, suffering: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -63,7 +62,6 @@ class Registration : AppCompatActivity() {
 
                     val user = hashMapOf(
                         "name" to name,
-                        "username" to username,
                         "email" to email,
                         "password" to password,
                         "age" to age,
@@ -78,11 +76,11 @@ class Registration : AppCompatActivity() {
 
                     db.collection("CLIENTS")
                         .add(user)
-                        .addOnSuccessListener { documentReference->
+                        .addOnSuccessListener { documentReference ->
                             Log.d(ContentValues.TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
                         }
-                        .addOnFailureListener {e->
-                            Log.d(ContentValues.TAG, "Error in Document",e)
+                        .addOnFailureListener { e ->
+                            Log.d(ContentValues.TAG, "Error in Document", e)
                         }
 
                     Toast.makeText(baseContext, "Account created Successfully.", Toast.LENGTH_SHORT).show()
