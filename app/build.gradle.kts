@@ -63,7 +63,8 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(project(":volModule"))
-
+    //password toggle
+    implementation("com.google.android.material:material:<version>")
     //image slider
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.0")
 
