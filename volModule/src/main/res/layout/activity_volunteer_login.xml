@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextEmailAddress"
+        android:id="@+id/editTextEmailAddressVol"
         android:layout_width="360dp"
         android:layout_height="64dp"
         android:layout_marginStart="20dp"
@@ -49,7 +49,7 @@
         tools:ignore="RtlSymmetry,TextFields" />
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/editTextPasswordVol"
         android:layout_width="360dp"
         android:layout_height="64dp"
         android:layout_marginStart="20dp"

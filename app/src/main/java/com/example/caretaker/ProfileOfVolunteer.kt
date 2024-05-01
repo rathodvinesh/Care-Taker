@@ -18,6 +18,7 @@ class ProfileOfVolunteer : AppCompatActivity() {
 
         /// Retrieve data from intent extras
         val firstName = intent.getStringExtra("name")
+        val description = intent.getStringExtra("description")
         val phone = intent.getStringExtra("contact")
         val age = intent.getStringExtra("age")
         val gender = intent.getStringExtra("gender")
@@ -28,14 +29,15 @@ class ProfileOfVolunteer : AppCompatActivity() {
         val amount = intent.getStringExtra("amount")
 
         // Set the retrieved values to corresponding TextViews
-        binding.textViewname.text = firstName
-        binding.tvPhone.text = phone
-        binding.tvAge.text = age
-        binding.tvGender.text = gender
-        binding.editTextPostalAddress.text = address
-        binding.tvLocation.text = location
-        binding.textViewservice.text = service
-        binding.textViewshift.text = shift
-        binding.textViewAmount.text = amount
+        binding.tvNameVol.text = firstName
+        binding.tvDescriptionVol.text = description
+        binding.tvPhoneVol.text = phone
+        binding.tvAgeVol.text = age
+        binding.tvGenderVol.text = gender
+        binding.tvPostalAddressVol.text = address
+        binding.tvLocationVol.text = location
+        binding.tvServiceVol.text = service
+        binding.tvShiftVol.text = shift
+        binding.tvAmountVol.text = amount
     }
 }

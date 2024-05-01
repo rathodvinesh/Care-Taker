@@ -156,7 +156,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextPasswordVol" />
 
             <TextView
                 android:id="@+id/textView15"
@@ -367,29 +367,35 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <RadioGroup
+                android:id="@+id/radioBtnGender"
+                android:layout_width="130dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="270dp"
-                android:layout_marginTop="420dp"
-                android:buttonTint="@color/button_color"
-                android:fontFamily="@font/source_serif_pro"
-                android:text="F"
-                android:textColor="@color/button_color"
-                android:textSize="20sp" />
+                android:layout_marginTop="370dp">
 
-            <RadioButton
-                android:id="@+id/radioButtonmale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="270dp"
-                android:layout_marginTop="370dp"
-                android:buttonTint="@color/button_color"
-                android:fontFamily="@font/source_serif_pro"
-                android:text="M"
-                android:textColor="@color/button_color"
-                android:textSize="20sp" />
+                <RadioButton
+                    android:id="@+id/radioButtonMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/button_color"
+                    android:fontFamily="@font/source_serif_pro"
+                    android:text="M"
+                    android:textColor="@color/button_color"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/button_color"
+                    android:fontFamily="@font/source_serif_pro"
+                    android:text="F"
+                    android:textColor="@color/button_color"
+                    android:textSize="20sp" />
+
+            </RadioGroup>
+
         </FrameLayout>
     </ScrollView>
 

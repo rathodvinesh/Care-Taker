@@ -3,18 +3,13 @@ package com.example.caretaker
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.caretaker.R
 import com.example.caretaker.databinding.ActivityLoginBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -48,10 +43,10 @@ class Login : AppCompatActivity() {
             isPasswordVisible =!isPasswordVisible
             if (isPasswordVisible) {
                 editTextPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-                hideEyeIcon.setImageResource(com.learnvinesh.volmodule.R.drawable.ic_show_pwd) // Change back to the eye icon
+                hideEyeIcon.setImageResource(R.drawable.ic_show_pwd) // Change back to the eye icon
             } else {
                 editTextPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-                hideEyeIcon.setImageResource(com.learnvinesh.volmodule.R.drawable.ic_hide_pwd) // Change to the eye-slash icon
+                hideEyeIcon.setImageResource(R.drawable.ic_hide_pwd) // Change to the eye-slash icon
             }
         }
 

@@ -13,7 +13,6 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.firestore
 
 class VolunteerRegistration : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -33,30 +32,30 @@ class VolunteerRegistration : AppCompatActivity() {
 
         // Create ArrayAdapter instances for each spinner
         val shiftAdapter = ArrayAdapter(this, R.layout.simple_spinner_dropdown_item, shifts)
-        val serviceAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, services)
+        val serviceAdapter = ArrayAdapter(this, R.layout.simple_spinner_dropdown_item, services)
 
         // Set the adapters to the Spinners
         binding.spinnerShift.adapter = shiftAdapter
         binding.spinnerService.adapter = serviceAdapter
 
         binding.signUpBtnReg.setOnClickListener {
-            val email = binding.editTextEmailAddress.text.toString()
-            val password = binding.editTextPassword.text.toString()
-            val name = binding.editTextName.text.toString()
-            val age = binding.editTextAge.text.toString()
-            val gender = binding.editTextGender.text.toString()
-            val contact = binding.editTextPhone.text.toString()
-            val address = binding.editTextPostalAddress.text.toString()
-            val location = binding.editTextLocation.text.toString()
-            val amount = binding.editTextAmount.text.toString()
-            val description = binding.editTextDescription.text.toString()
+            val email = binding.editTextEmailAddressVol.text.toString()
+            val password = binding.editTextPasswordVol.text.toString()
+            val name = binding.editTextNameVol.text.toString()
+            val age = binding.editTextAgeVol.text.toString()
+            val gender = binding.radioBtnGenderVol.checkedRadioButtonId
+            val contact = binding.editTextPhoneVol.text.toString()
+            val address = binding.editTextPostalAddressVol.text.toString()
+            val location = binding.editTextLocationVol.text.toString()
+            val amount = binding.editTextAmountVol.text.toString()
+            val description = binding.editTextDescriptionVol.text.toString()
 
             // Retrieve selected values from the Spinners
             val shift = binding.spinnerShift.selectedItem.toString()
             val service = binding.spinnerService.selectedItem.toString()
 
             if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && description.isNotEmpty()
-                && age.isNotEmpty() && gender.isNotEmpty() && contact.isNotEmpty() && address.isNotEmpty()
+                && age.isNotEmpty() && gender!= -1 && contact.isNotEmpty() && address.isNotEmpty()
                 && location.isNotEmpty() && shift.isNotEmpty() && service.isNotEmpty() && amount.isNotEmpty()) {
                 createUserWithEmailAndPassword(email, password, name, description, age, gender, contact, address, location,shift,service,amount)
             } else {
@@ -72,7 +71,10 @@ class VolunteerRegistration : AppCompatActivity() {
     }
 
 
-    private fun createUserWithEmailAndPassword(email: String, password: String, name: String, age: String, gender: String, contact: String, address: String, location: String, shift: String,service:String,amount:String, description: String) {
+    private fun createUserWithEmailAndPassword(
+        email: String, password: String, name: String, age: String, gender: String, contact: Int, address: String, location: String, shift: String,
+        service:String,
+        amount:String, description: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {

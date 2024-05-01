@@ -30,21 +30,24 @@ class VolunteerLogin : AppCompatActivity() {
         auth = Firebase.auth
 
         //Initializing all the components
-        val emailTV = binding.editTextEmailAddress
-        val passwordTV = binding.editTextPassword
+        val emailTV = binding.editTextEmailAddressVol
+        val passwordTV = binding.editTextPasswordVol
         val loginBtn = binding.loginBtn
         val signUpBtn = binding.SignUpBtn
 
-        val editTextPassword = findViewById<EditText>(R.id.editTextPassword)
+        val editTextPassword = findViewById<EditText>(R.id.editTextPasswordVol)
         val hideEyeIcon = findViewById<ImageView>(R.id.hide_id)
 
+        var isPasswordVisible = false
+
         hideEyeIcon.setOnClickListener {
-            if (editTextPassword.inputType == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
-                editTextPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-                hideEyeIcon.setImageResource(R.drawable.ic_hide_pwd) // Change to the eye-slash icon
-            } else {
+            isPasswordVisible =!isPasswordVisible
+            if (isPasswordVisible) {
                 editTextPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
                 hideEyeIcon.setImageResource(R.drawable.ic_show_pwd) // Change back to the eye icon
+            } else {
+                editTextPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                hideEyeIcon.setImageResource(R.drawable.ic_hide_pwd) // Change to the eye-slash icon
             }
         }
 
