@@ -12,13 +12,14 @@
         tools:context=".fragments.SearchFragment">
 
         <EditText
-            android:id="@+id/textView28"
+            android:id="@+id/edittextsearch"
             android:layout_width="394dp"
             android:layout_height="50dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/text_shape"
             android:drawableStart="@drawable/baseline_search_24"
+            android:drawablePadding="8dp"
             android:drawableTint="@color/stroke_for_button"
             android:fontFamily="@font/source_serif_pro"
             android:hint="Search Caretaker"

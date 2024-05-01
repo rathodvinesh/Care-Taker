@@ -20,7 +20,7 @@
 
             <TextView
                 android:id="@+id/textView9"
-                android:layout_width="160dp"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="142dp"
                 android:layout_marginTop="20dp"
@@ -375,7 +375,7 @@
                 android:layout_marginTop="420dp"
                 android:buttonTint="@color/button_color"
                 android:fontFamily="@font/source_serif_pro"
-                android:text="Female"
+                android:text="F"
                 android:textColor="@color/button_color"
                 android:textSize="20sp" />
 
@@ -387,7 +387,7 @@
                 android:layout_marginTop="370dp"
                 android:buttonTint="@color/button_color"
                 android:fontFamily="@font/source_serif_pro"
-                android:text="Male"
+                android:text="M"
                 android:textColor="@color/button_color"
                 android:textSize="20sp" />
         </FrameLayout>

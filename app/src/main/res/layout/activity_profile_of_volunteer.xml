@@ -80,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="260dp"
+                android:justificationMode="inter_word"
                 android:fontFamily="@font/source_serif_pro"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod laoreet ante, quis gravida ipsum lobortis nec. Mauris id lobortis nibh, et mattis arcu. Duis et augue ut elit tincidunt consequat a eget erat. Phasellus vitae commodo mi. Curabitur vehicula tortor ipsum, blandit bibendum nulla pharetra sed. Maecenas faucibus sapien metus, vel posuere tortor tincidunt hendrerit. Vivamus tincidunt mauris at vehicula ornare. Curabitur pulvinar est fermentum, dictum erat ac, ornare quam."
                 android:textColor="@color/black"
