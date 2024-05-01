@@ -96,6 +96,9 @@ class VolunteerLogin : AppCompatActivity() {
                     val editor = sharedPref.edit()
                     editor.putString("userType", "volunteer")
                     editor.apply()
+                    val userType = sharedPref.getString("userType", "def")
+
+                    Log.d("usertype", userType.toString())
 
                     val intent = Intent(this, VolunteerMainActivity::class.java)
                     startActivity(intent)
@@ -103,7 +106,7 @@ class VolunteerLogin : AppCompatActivity() {
 //                    val user = auth.currentUser
 //                    updateUI(user)
                 } else {
-                    // If sign in fails, display a message to the user.
+                    // If sign in fails, display ClientActionData message to the user.
                     Log.w(ContentValues.TAG, "signInWithEmail:failure", task.exception)
                     Toast.makeText(
                         baseContext,

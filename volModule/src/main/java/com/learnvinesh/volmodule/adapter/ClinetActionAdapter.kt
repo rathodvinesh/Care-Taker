@@ -1,0 +1,110 @@
+package com.learnvinesh.volmodule.adapter
+
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.DocumentChange
+import com.google.firebase.firestore.EventListener
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.firestore.toObject
+import com.google.firebase.ktx.Firebase
+import com.learnvinesh.volmodule.R
+import com.learnvinesh.volmodule.model.ClientActionData
+import com.learnvinesh.volmodule.model.VolunteerAppliData
+
+class ClinetActionAdapter(var clientList:ArrayList<ClientActionData>):RecyclerView.Adapter<ClinetActionAdapter.ClientActionViewHolder>() {
+
+    private var database = FirebaseFirestore.getInstance()
+    private lateinit var auth: FirebaseAuth
+
+    inner class ClientActionViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
+        val nameTextView: TextView = itemView.findViewById(R.id.nameTV)
+        val ageTextView: TextView = itemView.findViewById(R.id.ageTV)
+        val genderTextView: TextView = itemView.findViewById(R.id.genderTV)
+        val addressTextView: TextView = itemView.findViewById(R.id.addressTV)
+        val ailmentTextView: TextView = itemView.findViewById(R.id.ailmentTV)
+        val contactTextView: TextView = itemView.findViewById(R.id.contactTV)
+        val btnAccept: Button = itemView.findViewById(R.id.acceptBtn)
+        val btnReject: Button = itemView.findViewById(R.id.rejectBtn)
+        val btnProfile: Button = itemView.findViewById(R.id.viewProfileBtn)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClientActionViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.recyler_view_item_client_applications,parent,false)
+
+        return ClientActionViewHolder(view)
+    }
+
+    override fun getItemCount(): Int {
+        return clientList.size
+    }
+
+    override fun onBindViewHolder(holder: ClientActionViewHolder, position: Int) {
+        val currentPosiClient = clientList[position]
+
+        holder.apply {
+            nameTextView.text = currentPosiClient.name
+            ageTextView.text = currentPosiClient.age
+            genderTextView.text = currentPosiClient.gender
+            contactTextView.text = currentPosiClient.contact
+            ailmentTextView.text = currentPosiClient.suffering
+            addressTextView.text = currentPosiClient.address
+
+            btnAccept.setOnClickListener {
+                auth = Firebase.auth
+
+                val currentUser = auth.currentUser?.uid.toString()
+                Log.i("CurrUser",currentUser)
+
+
+                database.collection("VOLUNTEERS")
+                    .addSnapshotListener(object : EventListener<QuerySnapshot>{
+                        override fun onEvent(
+                            value: QuerySnapshot?,
+                            error: FirebaseFirestoreException?
+                        ) {
+                            for (dc:DocumentChange in value?.documentChanges!!){
+                                if(dc.type == DocumentChange.Type.ADDED){
+
+                                    val volUidRef = database.collection("VOLUNTEERS").document(dc.document.id)
+                                    volUidRef.get().addOnSuccessListener { documentSnapshot ->
+                                        if (documentSnapshot != null) {
+                                            val uid = documentSnapshot.getString("uid").toString()
+                                            val user = dc.document.id
+                                            Log.i("Doc", user)
+
+                                            if (uid == currentUser) {
+
+                                                database.collection("VOLUNTEERS").document(user)
+                                                    .update("hireStatus", "Hired")
+                                                    .addOnSuccessListener {
+
+                                                        btnAccept.isEnabled = false
+                                                        btnReject.isEnabled = false
+//                                                Toast.makeText(this, "Account created Successfully.", Toast.LENGTH_SHORT).show()
+                                                    }
+                                                Log.i("volUserRef", uid)
+                                            } else {
+                                                Log.e("volUserRef", "Document does not exist")
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    })
+
+
+            }
+        }
+    }
+}

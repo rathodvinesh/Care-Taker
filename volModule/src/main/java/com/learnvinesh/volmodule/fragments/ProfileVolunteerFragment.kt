@@ -37,8 +37,12 @@ class ProfileVolunteerFragment : Fragment() {
         binding.logOutBtn.setOnClickListener {
             val shared = requireActivity().getSharedPreferences("careTaker", Context.MODE_PRIVATE)
             val editor = shared.edit()
-            editor.putString("userType", "")
+            editor.putString("userType", " ")
             editor.apply()
+            val userType = shared.getString("userType", "def")
+
+            Log.d("usertype", userType.toString())
+
             auth.signOut()
             activity?.finish()
             startActivity(Intent(this.context, VolunteerPreLogin::class.java))

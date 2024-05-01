@@ -55,8 +55,8 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun setUpFragment() {
-        binding.bottomNavigation.setItemSelected(R.id.bottom_home)
-        binding.bottomNavigation.setOnItemSelectedListener {
+        binding.bottomNavigationClient.setItemSelected(R.id.bottom_home)
+        binding.bottomNavigationClient.setOnItemSelectedListener {
             when(it){
                 R.id.bottom_home ->replaceFragment(HomeFragment())
                 R.id.bottom_search ->replaceFragment(SearchFragment())

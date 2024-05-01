@@ -6,8 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="412dp"
-        android:layout_height="243dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:visibility="visible"
         app:cardCornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,7 @@
             android:layout_marginStart="120dp"
             android:layout_marginTop="140dp"
             android:fontFamily="@font/source_serif_pro_bold"
-            android:text="Shift:"
+            android:text="Ailment:"
             android:textColor="@color/button_color"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,14 +36,14 @@
             android:layout_marginStart="230dp"
             android:layout_marginTop="140dp"
             android:fontFamily="@font/source_serif_pro_bold"
-            android:text="Amount:"
+            android:text="Contact:"
             android:textColor="@color/button_color"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/amountTV"
+            android:id="@+id/contactTV"
             android:layout_width="70dp"
             android:layout_height="20dp"
             android:layout_marginStart="305dp"
@@ -54,15 +54,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/clientImage"
             android:layout_width="105dp"
-            android:layout_height="111dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="15dp"
+            android:layout_height="131dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_person_24" />
 
         <TextView
-            android:id="@+id/serviceTV"
+            android:id="@+id/addressTV"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_marginStart="190dp"
@@ -97,7 +97,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/shiftTV"
+            android:id="@+id/ailmentTV"
             android:layout_width="55dp"
             android:layout_height="25dp"
             android:layout_marginStart="165dp"
@@ -105,13 +105,12 @@
 
             android:ems="10"
             android:fontFamily="@font/source_serif_pro"
-            android:inputType="text"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/rejectBtn"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="280dp"
@@ -193,7 +192,7 @@
             android:layout_marginStart="120dp"
             android:layout_marginTop="100dp"
             android:fontFamily="@font/source_serif_pro_bold"
-            android:text="Service:"
+            android:text="Address:"
             android:textColor="@color/button_color"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -213,7 +212,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/hireBtn"
+            android:id="@+id/viewProfileBtn"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -227,7 +226,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/profileBtn"
+            android:id="@+id/acceptBtn"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="140dp"

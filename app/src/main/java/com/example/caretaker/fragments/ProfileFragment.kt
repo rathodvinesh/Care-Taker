@@ -1,5 +1,6 @@
 package com.example.caretaker.fragments
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import com.example.caretaker.PreLogin
 import com.example.caretaker.R
 import com.example.caretaker.databinding.FragmentProfileBinding
@@ -21,11 +24,14 @@ class ProfileFragment : Fragment() {
     private lateinit var navController: NavController
     private lateinit var auth: FirebaseAuth
 
+    @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
+
+
 
         auth = FirebaseAuth.getInstance()
 
@@ -38,11 +44,25 @@ class ProfileFragment : Fragment() {
         binding.logOutBtn.setOnClickListener {
             val shared = requireActivity().getSharedPreferences("careTaker", Context.MODE_PRIVATE)
             val editor = shared.edit()
-            editor.putString("userType", "")
+            editor.putString("userType", " ")
             editor.apply()
+            val userType = shared.getString("userType", "def")
+
+            Log.d("usertype", userType.toString())
+
             auth.signOut()
             activity?.finish()
             startActivity(Intent(this.context, PreLogin::class.java))
+        }
+
+        binding.updateProfileClient.setOnClickListener {
+// In your fragment where you want to navigate from
+            val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+            val fragment = UpdateProfileFragment()
+            fragmentTransaction.replace(R.id.nav_host_fragment, fragment)
+            fragmentTransaction.addToBackStack(null) // Optional: Allows users to navigate back using the back button
+            fragmentTransaction.commit()
+
         }
 
         return binding.root

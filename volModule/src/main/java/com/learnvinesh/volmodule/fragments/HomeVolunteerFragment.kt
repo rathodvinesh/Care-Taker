@@ -38,7 +38,7 @@ class HomeVolunteerFragment : Fragment() {
 
         // Add images to the list
         imageList.add(SlideModel("https://img.freepik.com/free-photo/asian-young-caregiver-caring-her-elderly-patient-senior-daycare-handicap-patient-wheelchair-hospital-talking-friendly-nurse-looking-cheerful-nurse-wheeling-senior-patient_609648-3125.jpg", "We are here to support you"))
-        imageList.add(SlideModel("https://t4.ftcdn.net/jpg/05/00/43/17/360_F_500431770_2lKBDeRtclz26vbaaIddDXc4pKdYo2Wa.jpg", "Let's take it one step at a time"))
+        imageList.add(SlideModel("https://t4.ftcdn.net/jpg/05/00/43/17/360_F_500431770_2lKBDeRtclz26vbaaIddDXc4pKdYo2Wa.jpg", "Let's take it one step at ClientActionData time"))
         imageList.add(SlideModel("https://as1.ftcdn.net/v2/jpg/05/83/36/04/1000_F_583360486_xAQBKUTEqNztgKWSuxYAUdiArJ1TDrQG.jpg", "We are here to assist you with whatever you need"))
 
         // Set up the image slider using binding

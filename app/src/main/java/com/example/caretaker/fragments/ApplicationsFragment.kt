@@ -38,7 +38,7 @@ class ApplicationsFragment : Fragment() {
 
         recyclerView = binding.rvAppli
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.setHasFixedSize(true)
+        recyclerView.setHasFixedSize(false)
 
         volAppliArrayList = arrayListOf()
 
@@ -202,7 +202,7 @@ class ApplicationsFragment : Fragment() {
 //                        volunteer = volunteer,
 //                        onDeleteClick = {
 //                            // Handle delete action
-//                            // You can call a function here to delete the volunteer from Firestore
+//                            // You can call ClientActionData function here to delete the volunteer from Firestore
 //                        }
 //                    )
 //                }

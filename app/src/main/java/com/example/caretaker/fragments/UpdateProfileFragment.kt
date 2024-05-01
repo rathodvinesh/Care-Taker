@@ -8,29 +8,25 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.caretaker.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.FirebaseFirestore
 
 class UpdateProfileFragment : Fragment() {
     private lateinit var mAuth: FirebaseAuth
-    private lateinit var database: DatabaseReference
+    private lateinit var firestore: FirebaseFirestore
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        return inflater.inflate(R.layout.fragment_update_profile, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         mAuth = FirebaseAuth.getInstance()
-        database = FirebaseDatabase.getInstance().reference.child("Users")
+        firestore = FirebaseFirestore.getInstance()
 
         val userId = mAuth.currentUser?.uid
 
@@ -40,31 +36,30 @@ class UpdateProfileFragment : Fragment() {
         val contactTextView = view.findViewById<TextView>(R.id.textView20)
         val addressTextView = view.findViewById<TextView>(R.id.textView21)
         val locationTextView = view.findViewById<TextView>(R.id.editTextlocation)
-        val ailmentTextView = view.findViewById<TextView>(R.id.textView23) // Assuming this should be TextView
+        val ailmentTextView = view.findViewById<TextView>(R.id.textView23)
 
         userId?.let { uid ->
-            database.child(uid).addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val user = snapshot.getValue(User::class.java)
-                    user?.let {
-                        nameTextView.text = it.name
-                        ageTextView.text = it.age.toString() // Assuming age is an Int
-                        genderTextView.text = it.gender
-                        contactTextView.text = it.contact
-                        addressTextView.text = it.address
-                        locationTextView.text = it.location
-                        ailmentTextView.text = it.ailment
+            firestore.collection("CLIENTS").document(uid).get()
+                .addOnSuccessListener { documentSnapshot ->
+                    if (documentSnapshot != null && documentSnapshot.exists()) {
+                        val user = documentSnapshot.toObject(User::class.java)
+                        user?.let {
+                            nameTextView.text = it.name
+                            ageTextView.text = it.age.toString()
+                            genderTextView.text = it.gender
+                            contactTextView.text = it.contact
+                            addressTextView.text = it.address
+                            locationTextView.text = it.location
+                            ailmentTextView.text = it.ailment
+                        }
                     }
                 }
-
-                override fun onCancelled(error: DatabaseError) {
-                    // Handle error
+                .addOnFailureListener { exception ->
+                    // Handle failure
                 }
-            })
         }
     }
 
-    // Assuming you have a User data class that matches your Firebase structure
     data class User(
         var name: String = "",
         var age: Int = 0,

@@ -31,7 +31,7 @@ class Login : AppCompatActivity() {
         //Initializing all the components
         val emailTV = binding.editTextEmailAddress
         val passwordTV = binding.editTextPassword
-        val loginBtn = binding.loginBtn
+        val loginBtn = binding.loginBtnClient
         val signUpBtn = binding.SignUpBtn
 
         val editTextPassword = findViewById<EditText>(R.id.editTextPassword)
@@ -96,13 +96,19 @@ class Login : AppCompatActivity() {
                     editor.putString("userType", "client")
                     editor.apply()
 
+                    val userType = sharedPref.getString("userType", "def")
+
+                    Log.d("usertype", userType.toString())
+//                    Log.i("sharedPred",sharedPref.toString())
+
+
                     val intent = Intent(this,MainActivity::class.java)
                     startActivity(intent)
                     finish()
 //                    val user = auth.currentUser
 //                    updateUI(user)
                 } else {
-                    // If sign in fails, display a message to the user.
+                    // If sign in fails, display ClientActionData message to the user.
                     Log.w(ContentValues.TAG, "signInWithEmail:failure", task.exception)
                     Toast.makeText(
                         baseContext,

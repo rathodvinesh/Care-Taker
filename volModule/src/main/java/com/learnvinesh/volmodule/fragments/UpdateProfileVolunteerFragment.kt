@@ -64,7 +64,7 @@ class UpdateProfileVolunteerFragment : Fragment() {
         }
     }
 
-    // Assuming you have a User data class that matches your Firebase structure
+    // Assuming you have ClientActionData User data class that matches your Firebase structure
     data class User(
         var name: String = "",
         var age: Int = 0,
