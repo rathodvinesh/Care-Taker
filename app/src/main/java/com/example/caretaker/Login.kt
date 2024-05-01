@@ -5,7 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.InputType
 import android.util.Log
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -35,6 +38,22 @@ class Login : AppCompatActivity() {
         val passwordTV = binding.editTextPassword
         val loginBtn = binding.loginBtn
         val signUpBtn = binding.SignUpBtn
+
+        val editTextPassword = findViewById<EditText>(R.id.editTextPassword)
+        val hideEyeIcon = findViewById<ImageView>(R.id.hide_icon)
+
+        var isPasswordVisible = false
+
+        hideEyeIcon.setOnClickListener {
+            isPasswordVisible =!isPasswordVisible
+            if (isPasswordVisible) {
+                editTextPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                hideEyeIcon.setImageResource(com.learnvinesh.volmodule.R.drawable.ic_show_pwd) // Change back to the eye icon
+            } else {
+                editTextPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                hideEyeIcon.setImageResource(com.learnvinesh.volmodule.R.drawable.ic_hide_pwd) // Change to the eye-slash icon
+            }
+        }
 
 
         loginBtn.setOnClickListener{

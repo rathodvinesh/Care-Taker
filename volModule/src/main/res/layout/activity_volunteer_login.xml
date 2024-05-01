@@ -69,6 +69,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/hide_id"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="325dp"
+        android:layout_marginTop="350dp"
+        android:tint="@color/backgroundColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_hide_pwd" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="222dp"
