@@ -137,15 +137,19 @@
             android:id="@+id/radioBtnGenderUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginStart="270dp"
-            android:layout_marginTop="345dp">
+            android:layout_marginTop="345dp"
+            android:backgroundTint="@color/button_color"
+            android:checkedButton="@id/radioButtonMale"
+            android:foregroundTint="@color/button_color"
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/radioButtonMale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/button_color"
+                android:checked="true"
                 android:fontFamily="@font/source_serif_pro"
                 android:text="M"
                 android:textColor="@color/button_color"
@@ -292,7 +296,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/logOutBtn"
+            android:id="@+id/updateBtn"
             android:layout_width="288dp"
             android:layout_height="60dp"
             android:layout_marginStart="60dp"

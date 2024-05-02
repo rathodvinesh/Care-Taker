@@ -33,6 +33,13 @@ class ProfileFragment : Fragment() {
 
 
 
+
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
 
         // Retrieve user profile data
@@ -64,8 +71,6 @@ class ProfileFragment : Fragment() {
             fragmentTransaction.commit()
 
         }
-
-        return binding.root
     }
 
     private fun retrieveUserProfileData(email: String) {

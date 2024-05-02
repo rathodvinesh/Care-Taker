@@ -30,14 +30,15 @@ class Registration : AppCompatActivity() {
             val password = binding.editTextPassword.text.toString()
             val name = binding.editTextName.text.toString()
             val age = binding.editTextAge.text.toString()
-            val gender = binding.radioBtnGender.checkedRadioButtonId
+//            val gender = binding.radioBtnGender.checkedRadioButtonId
+            val gender = if (binding.radioButtonMale.isChecked) "Male" else "Female"
             val contact = binding.editTextPhone.text.toString()
             val address = binding.editTextPostalAddress.text.toString()
             val location = binding.editTextLocation.text.toString()
             val suffering = binding.editTextAilment.text.toString()
 
             if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && age.isNotEmpty()
-                && gender!= -1 && contact.isNotEmpty() && address.isNotEmpty()
+                && gender.isNotEmpty() && contact.isNotEmpty() && address.isNotEmpty()
                 && location.isNotEmpty() && suffering.isNotEmpty()) {
                 createUserWithEmailAndPassword(email, password, name, age, gender, contact, address, location, suffering)
             } else {
@@ -52,7 +53,7 @@ class Registration : AppCompatActivity() {
         }
     }
 
-    private fun createUserWithEmailAndPassword(email: String, password: String, name: String, age: String, gender: Int, contact: String, address: String, location: String, suffering: String) {
+    private fun createUserWithEmailAndPassword(email: String, password: String, name: String, age: String, gender: String, contact: String, address: String, location: String, suffering: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {

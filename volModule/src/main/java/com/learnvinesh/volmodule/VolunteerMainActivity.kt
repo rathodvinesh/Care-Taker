@@ -29,7 +29,7 @@ class VolunteerMainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_client) as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_volunteer) as NavHostFragment
         navController = navHostFragment.navController
 
         replaceFragment(HomeVolunteerFragment())
@@ -53,7 +53,7 @@ class VolunteerMainActivity : AppCompatActivity() {
     private fun replaceFragment(home: Fragment) {
         val fragManager = supportFragmentManager
         val fragTransaction = fragManager.beginTransaction()
-        fragTransaction.replace(R.id.nav_host_fragment_client,home)
+        fragTransaction.replace(R.id.nav_host_fragment_volunteer,home)
         fragTransaction.commit()
     }
 

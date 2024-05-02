@@ -13,6 +13,7 @@ import com.learnvinesh.volmodule.VolunteerPreLogin
 import com.learnvinesh.volmodule.databinding.FragmentVolunteerProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.learnvinesh.volmodule.R
 
 class ProfileVolunteerFragment : Fragment() {
 
@@ -32,6 +33,14 @@ class ProfileVolunteerFragment : Fragment() {
         val currentUserEmail = auth.currentUser?.email
         currentUserEmail?.let {
             retrieveUserProfileData(it)
+        }
+
+        binding.updateprofilebutton.setOnClickListener {
+            val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+            val fragment = UpdateProfileVolunteerFragment()
+            fragmentTransaction.replace(R.id.nav_host_fragment_volunteer, fragment)
+            fragmentTransaction.addToBackStack(null) // Optional: Allows users to navigate back using the back button
+            fragmentTransaction.commit()
         }
 
         binding.logOutBtn.setOnClickListener {
@@ -67,10 +76,11 @@ class ProfileVolunteerFragment : Fragment() {
                     val service = document.getString("service")
                     val shift = document.getString("shift")
                     val amount = document.getString("amount")
+                    val desc = document.getString("description")
 
 
                     // Populate the UI with the retrieved data
-                    populateProfileData(firstName, age, gender, phone, address, location, service,shift,amount)
+                    populateProfileData(firstName, age, gender, phone, address, location, service,shift,amount,desc)
                 }
             }
             .addOnFailureListener { exception ->
@@ -78,7 +88,7 @@ class ProfileVolunteerFragment : Fragment() {
             }
     }
 
-    private fun populateProfileData(name: String?, age: String?, gender: String?, phone: String?, address: String?, location: String?, service: String?,shift:String?,amount:String?) {
+    private fun populateProfileData(name: String?, age: String?, gender: String?, phone: String?, address: String?, location: String?, service: String?,shift:String?,amount:String?,desc:String?) {
         name?.let { binding.nameText.text = it }
         age?.let { binding.ageText.text = it }
         gender?.let { binding.genderText.text = it }
@@ -88,6 +98,7 @@ class ProfileVolunteerFragment : Fragment() {
         service?.let { binding.servicetext.text = it }
         shift?.let { binding.shiftText.text = it }
         amount?.let { binding.amountText.text = it }
+        desc?.let { binding.tvDesc.text = it }
     }
 
     companion object {

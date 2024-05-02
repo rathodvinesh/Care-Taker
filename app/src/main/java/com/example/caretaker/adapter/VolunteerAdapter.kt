@@ -40,7 +40,7 @@ class VolunteerAdapter( var volunteerList:ArrayList<Volunteer>) :RecyclerView.Ad
                 nameTextView.text = curPosi.name
                 ageTextView.text = curPosi.age.toString()
                 genderTextView.text = curPosi.gender
-                contactTextView.text = curPosi.contact
+                contactTextView.text = curPosi.contact.toString()
                 serviceTextView.text = curPosi.service
                 shiftTextView.text = curPosi.shift
                 amountTextView.text = curPosi.amount.toString()

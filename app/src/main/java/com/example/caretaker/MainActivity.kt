@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 import com.example.caretaker.databinding.ActivityMainBinding
 import com.example.caretaker.fragments.ApplicationsFragment
@@ -51,7 +52,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
+//    private fun navigateToFragment(fragmentId: Int) {
+//        val action = NavGraph.actionGlobalFragmentId()
+//        navController.navigate(action)
+//    }
 
 
     private fun setUpFragment() {

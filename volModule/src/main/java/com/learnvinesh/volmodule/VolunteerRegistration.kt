@@ -1,5 +1,6 @@
 package com.learnvinesh.volmodule
 
+//noinspection SuspiciousImport
 import android.R
 import android.content.ContentValues
 import android.content.Intent
@@ -27,7 +28,7 @@ class VolunteerRegistration : AppCompatActivity() {
         auth = Firebase.auth
 
         // Define arrays for spinner options
-        val shifts = arrayOf("Day", "Night")
+        val shifts = arrayOf("Day", "Night", "Both")
         val services = arrayOf("Voluntarily", "Charged")
 
         // Create ArrayAdapter instances for each spinner
@@ -43,7 +44,7 @@ class VolunteerRegistration : AppCompatActivity() {
             val password = binding.editTextPasswordVol.text.toString()
             val name = binding.editTextNameVol.text.toString()
             val age = binding.editTextAgeVol.text.toString()
-            val gender = binding.radioBtnGenderVol.checkedRadioButtonId
+            val gender = if (binding.radioButtonMaleVol.isChecked) "Male" else "Female"
             val contact = binding.editTextPhoneVol.text.toString()
             val address = binding.editTextPostalAddressVol.text.toString()
             val location = binding.editTextLocationVol.text.toString()
@@ -55,9 +56,10 @@ class VolunteerRegistration : AppCompatActivity() {
             val service = binding.spinnerService.selectedItem.toString()
 
             if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && description.isNotEmpty()
-                && age.isNotEmpty() && gender!= -1 && contact.isNotEmpty() && address.isNotEmpty()
+                && age.isNotEmpty() && gender.isNotEmpty() && contact.isNotEmpty() && address.isNotEmpty()
                 && location.isNotEmpty() && shift.isNotEmpty() && service.isNotEmpty() && amount.isNotEmpty()) {
-                createUserWithEmailAndPassword(email, password, name, description, age, gender, contact, address, location,shift,service,amount)
+
+                createUserWithEmailAndPassword(email, password, name, age, gender, contact, address, location,shift,service,amount,description)
             } else {
                 Toast.makeText(baseContext, "Please fill in all the fields", Toast.LENGTH_SHORT).show()
             }
@@ -72,9 +74,7 @@ class VolunteerRegistration : AppCompatActivity() {
 
 
     private fun createUserWithEmailAndPassword(
-        email: String, password: String, name: String, age: String, gender: String, contact: Int, address: String, location: String, shift: String,
-        service:String,
-        amount:String, description: String) {
+        email: String, password: String, name: String, age: String, gender: String, contact: String, address: String, location: String, shift: String, service:String, amount:String, description: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {

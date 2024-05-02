@@ -19,6 +19,18 @@
         android:textSize="32sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/NoApplications"
+        android:text="No applications found"
+        android:textSize="20dp"
+        android:visibility="gone"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/clientAppliRV"
         android:layout_width="match_parent"

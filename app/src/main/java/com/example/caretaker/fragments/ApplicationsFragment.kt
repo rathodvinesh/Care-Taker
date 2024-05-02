@@ -38,7 +38,7 @@ class ApplicationsFragment : Fragment() {
 
         recyclerView = binding.rvAppli
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.setHasFixedSize(false)
+        recyclerView.setHasFixedSize(true)
 
         volAppliArrayList = arrayListOf()
 
@@ -70,7 +70,7 @@ class ApplicationsFragment : Fragment() {
                     }
                 }
                 Log.d("datahere", volAppliArrayList.toString())
-                adapter.notifyDataSetChanged()
+//                adapter.notifyDataSetChanged()
 //                        adapter.notifyItemInserted(volArrayList.size-1)
                 recyclerView.adapter=adapter
             }

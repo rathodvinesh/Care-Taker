@@ -52,6 +52,12 @@ class ClinetActionAdapter(var clientList:ArrayList<ClientActionData>):RecyclerVi
         val currentPosiClient = clientList[position]
 
         holder.apply {
+            auth = Firebase.auth
+            val currentUser = auth.currentUser?.uid.toString()
+            Log.i("CurrUser",currentUser)
+
+//            if()
+
             nameTextView.text = currentPosiClient.name
             ageTextView.text = currentPosiClient.age
             genderTextView.text = currentPosiClient.gender
@@ -59,12 +65,8 @@ class ClinetActionAdapter(var clientList:ArrayList<ClientActionData>):RecyclerVi
             ailmentTextView.text = currentPosiClient.suffering
             addressTextView.text = currentPosiClient.address
 
+
             btnAccept.setOnClickListener {
-                auth = Firebase.auth
-
-                val currentUser = auth.currentUser?.uid.toString()
-                Log.i("CurrUser",currentUser)
-
 
                 database.collection("VOLUNTEERS")
                     .addSnapshotListener(object : EventListener<QuerySnapshot>{
@@ -102,8 +104,46 @@ class ClinetActionAdapter(var clientList:ArrayList<ClientActionData>):RecyclerVi
                             }
                         }
                     })
+            }
 
+            btnReject.setOnClickListener {
 
+                database.collection("VOLUNTEERS")
+                    .addSnapshotListener(object : EventListener<QuerySnapshot>{
+                        override fun onEvent(
+                            value: QuerySnapshot?,
+                            error: FirebaseFirestoreException?
+                        ) {
+                            for (dc:DocumentChange in value?.documentChanges!!){
+                                if(dc.type == DocumentChange.Type.ADDED){
+
+                                    val volUidRef = database.collection("VOLUNTEERS").document(dc.document.id)
+                                    volUidRef.get().addOnSuccessListener { documentSnapshot ->
+                                        if (documentSnapshot != null) {
+                                            val uid = documentSnapshot.getString("uid").toString()
+                                            val user = dc.document.id
+                                            Log.i("Doc", user)
+
+                                            if (uid == currentUser) {
+
+                                                database.collection("VOLUNTEERS").document(user)
+                                                    .update("hireStatus", "Un-Hired")
+                                                    .addOnSuccessListener {
+
+                                                        btnAccept.isEnabled = false
+                                                        btnReject.isEnabled = false
+//                                                Toast.makeText(this, "Account created Successfully.", Toast.LENGTH_SHORT).show()
+                                                    }
+                                                Log.i("volUserRef", uid)
+                                            } else {
+                                                Log.e("volUserRef", "Document does not exist")
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    })
             }
         }
     }
