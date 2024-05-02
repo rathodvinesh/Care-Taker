@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/textViewHeaderLogin"
-        android:layout_width="254dp"
+        android:layout_width="wrap_content"
         android:layout_height="62dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="160dp"
@@ -74,7 +74,7 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="222dp"
-        android:layout_height="26dp"
+        android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="448dp"
         android:layout_marginEnd="140dp"
@@ -116,12 +116,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_hide_pwd"
         app:tint="@color/stroke_for_button" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="126dp"
         android:layout_height="25dp"
         android:layout_marginStart="135dp"
-        android:layout_marginTop="580dp"
+        android:layout_marginTop="560dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="150dp"
         android:fontFamily="@font/source_serif_pro_bold"
@@ -142,7 +143,7 @@
         android:layout_width="288dp"
         android:layout_height="55dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="620dp"
+        android:layout_marginTop="650dp"
         android:layout_marginEnd="60dp"
         android:backgroundTint="@color/button_color"
         android:fontFamily="@font/source_serif_pro_bold"
