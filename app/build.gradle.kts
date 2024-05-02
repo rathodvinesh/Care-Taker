@@ -68,8 +68,6 @@ dependencies {
     //image slider
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.0")
 
-    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
-
 
     implementation ("androidx.viewpager2:viewpager2:1.0.0")
     implementation ("androidx.recyclerview:recyclerview:1.3.2")
@@ -81,6 +79,7 @@ dependencies {
     //chip bottom bar
     implementation("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
 
-    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
 }

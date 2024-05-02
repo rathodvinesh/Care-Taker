@@ -137,7 +137,7 @@ class VolunteerAdapter( var volunteerList:ArrayList<Volunteer>) :RecyclerView.Ad
         val amountTextView: TextView = itemView.findViewById(R.id.amountTV)
         val btnHire: Button = itemView.findViewById(R.id.hireBtn)
         val btnProfile:Button = itemView.findViewById(R.id.profileBtn)
-        val imageUser:ImageView = itemView.findViewById(R.id.imageViewUserSearch)
+        val imageUser:ImageView = itemView.findViewById(R.id.imageView2)
 //        private val statusTextView: TextView = itemView.findViewById(R.id.statusTV)
 
 
