@@ -63,4 +63,7 @@ dependencies {
 
     //chip bottom bar
     implementation(libs.chip.navigation.bar)
+
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
 }

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.caretaker.ProfileOfVolunteer
 import com.example.caretaker.R
 import com.example.caretaker.models.Volunteer
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
@@ -20,6 +21,7 @@ import com.google.firebase.firestore.QuerySnapshot
 class VolunteerAdapter( var volunteerList:ArrayList<Volunteer>) :RecyclerView.Adapter<VolunteerAdapter.VolunteersViewHolder>() {
 
     private val  database = FirebaseFirestore.getInstance()
+    private val currUser=FirebaseAuth.getInstance().currentUser?.uid.toString()
 //    var onItemClick:((Volunteer)->Unit)?=null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VolunteerAdapter.VolunteersViewHolder {
@@ -52,6 +54,9 @@ class VolunteerAdapter( var volunteerList:ArrayList<Volunteer>) :RecyclerView.Ad
                     btnHire.text ="Hired"
                     btnHire.isEnabled = false
                 }
+                if(curPosi.hireStatus=="Rejected"){
+                    btnHire.text ="Hire"
+                }
 
                 btnHire.setOnClickListener {
                     database.collection("VOLUNTEERS")
@@ -67,10 +72,11 @@ class VolunteerAdapter( var volunteerList:ArrayList<Volunteer>) :RecyclerView.Ad
                                             Log.d("docid", user.toString())
 
                                             database.collection("VOLUNTEERS").document(user)
-                                                .update("hireStatus", "Pending")
-
-//                                    notifyDataSetChanged()
-
+//                                                .update("hireStatus", "Pending")
+                                                .update(mapOf(
+                                                    "hireStatus" to "Pending",
+                                                    "hiredBy" to currUser
+                                                ))
                                         }
                                     }
                                 }

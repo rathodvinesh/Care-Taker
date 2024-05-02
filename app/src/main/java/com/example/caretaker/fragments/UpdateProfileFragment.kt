@@ -1,27 +1,38 @@
 package com.example.caretaker.fragments
 
+import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
+import com.bumptech.glide.Glide
 import com.example.caretaker.MainActivity
 import com.example.caretaker.R
 import com.example.caretaker.databinding.FragmentUpdateProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import java.io.IOException
 
 class UpdateProfileFragment : Fragment() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
     private lateinit var binding: FragmentUpdateProfileBinding
     private lateinit var navController:NavController
+
+    private lateinit var selectedImageUri: Uri
+    private lateinit var storageRef: StorageReference
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +49,8 @@ class UpdateProfileFragment : Fragment() {
 
         navController = (requireActivity() as MainActivity).navController
 
+        storageRef = FirebaseStorage.getInstance().reference
+
         mAuth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
@@ -51,8 +64,48 @@ class UpdateProfileFragment : Fragment() {
             updateUserProfileData(userEmail)
         }
 
+        binding.editProfileClient.setOnClickListener {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "image/*"
+            startActivityForResult(intent, PICK_IMAGE_REQUEST)
+        }
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
+            selectedImageUri = data.data!!
+            // Now you have the selected image URI, you can upload it to Firebase Storage
+            uploadImageToStorage(selectedImageUri)
+        }
 
     }
+
+    private fun uploadImageToStorage(imageUri: Uri) {
+        val currentUser = mAuth.currentUser
+        val uid = currentUser?.uid
+        uid?.let { userId ->
+            val imageRef = storageRef.child("Profile_Photos/$userId")
+            imageRef.putFile(imageUri)
+                .addOnSuccessListener { taskSnapshot ->
+                    // Get the download URL of the uploaded image
+                    imageRef.downloadUrl.addOnSuccessListener { uri ->
+                        Glide.with(requireContext())
+                            .load(uri)
+                            .into(binding.imageView4)
+                        Toast.makeText(requireContext(), "Image uploaded successfully", Toast.LENGTH_SHORT).show()
+                        // Handle success, e.g., update profile with image URL
+                        // Here you can call a function to update the user's profile with the image URL
+                    }
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(requireContext(), "Failed to upload image: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+        }
+    }
+
 
     private fun updateUserProfileData(userEmail: String?) {
         userEmail?.let { email ->
@@ -152,5 +205,6 @@ class UpdateProfileFragment : Fragment() {
 
     companion object {
         private const val TAG = "UpdateProfileFragment"
+        private const val PICK_IMAGE_REQUEST = 100
     }
 }

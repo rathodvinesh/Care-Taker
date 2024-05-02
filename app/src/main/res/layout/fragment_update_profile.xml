@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        tools:context=".fragments.ProfileFragment">
+        tools:context=".fragments.ProfileFragment"
+        tools:ignore="MissingClass">
 
         <TextView
             android:id="@+id/textView8"
@@ -38,8 +39,16 @@
             android:layout_marginTop="70dp"
             android:src="@drawable/baseline_person_24" />
 
+<!--        <com.theartofdev.edmodo.cropper.CropImageView-->
+<!--            xmlns:custom="http://schemas.android.com/apk/res-auto"-->
+<!--            android:id="@+id/cropImageView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            custom:aspectRatioX="1" />-->
+
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/editProfileClient"
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:layout_marginStart="130dp"

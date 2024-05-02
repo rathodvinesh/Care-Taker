@@ -13,4 +13,6 @@
     <color name="backgroundColor">#A1FFFFFF</color>
     <color name="button_color">#4378C1</color>
     <color name="stroke_for_button">#D1D1D1</color>
+    <color name="pending_yellow">#FDD900</color>
+    <color name="rejected_red">#FF0000</color>
 </resources>

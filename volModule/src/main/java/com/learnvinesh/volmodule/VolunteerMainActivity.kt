@@ -13,6 +13,7 @@ import com.google.firebase.ktx.Firebase
 import com.learnvinesh.volmodule.databinding.ActivityVolunteerMainBinding
 import com.learnvinesh.volmodule.fragments.ApplicationsVolunteerFragment
 import com.learnvinesh.volmodule.fragments.HomeVolunteerFragment
+import com.learnvinesh.volmodule.fragments.NotiVolunteerFragment
 import com.learnvinesh.volmodule.fragments.ProfileVolunteerFragment
 
 class VolunteerMainActivity : AppCompatActivity() {
@@ -41,7 +42,7 @@ class VolunteerMainActivity : AppCompatActivity() {
         binding.bottomNavigationVolunteer.setOnItemSelectedListener {
             when(it){
                 R.id.bottom_home ->replaceFragment(HomeVolunteerFragment())
-//                R.id.bottom_search ->replaceFragment(SearchFragment())
+                R.id.bottom_noti ->replaceFragment(NotiVolunteerFragment())
                 R.id.bottom_view ->replaceFragment(ApplicationsVolunteerFragment())
                 R.id.bottom_profile ->replaceFragment(ProfileVolunteerFragment())
 

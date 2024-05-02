@@ -42,6 +42,12 @@ class VolunteerApplicationsAdapter(var volApplis:ArrayList<VolunteerApplication>
             holder.statusImage.setImageDrawable(holder.itemView.context.resources.getDrawable(R.drawable.baseline_error_outline_24))
             holder.statusImage.setColorFilter(ContextCompat.getColor(holder.itemView.context, R.color.pending_yellow), PorterDuff.Mode.SRC_IN)
             holder.statusText.setTextColor(holder.itemView.context.resources.getColor(R.color.pending_yellow))
+        } else if(curPosition.hireStatus == "Rejected") {
+            holder.nameTV.text = curPosition.name
+            holder.statusText.text = "Rejected"
+            holder.statusImage.setImageDrawable(holder.itemView.context.resources.getDrawable(com.learnvinesh.volmodule.R.drawable.outline_cancel_24))
+            holder.statusImage.setColorFilter(ContextCompat.getColor(holder.itemView.context, com.learnvinesh.volmodule.R.color.rejected_red), PorterDuff.Mode.SRC_IN)
+            holder.statusText.setTextColor(holder.itemView.context.resources.getColor(com.learnvinesh.volmodule.R.color.rejected_red))
         } else {
             holder.nameTV.text = curPosition.name
         }

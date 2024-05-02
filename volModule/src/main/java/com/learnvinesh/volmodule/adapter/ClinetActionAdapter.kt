@@ -1,5 +1,6 @@
 package com.learnvinesh.volmodule.adapter
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -68,6 +69,13 @@ class ClinetActionAdapter(var clientList:ArrayList<ClientActionData>):RecyclerVi
 
             btnAccept.setOnClickListener {
 
+                val sharedPref = holder.itemView.context.getSharedPreferences("careTaker", Context.MODE_PRIVATE)
+
+                val editor = sharedPref.edit()
+                editor.putString(currentPosiClient.uid.toString(), "Accepted")
+                editor.apply()
+
+
                 database.collection("VOLUNTEERS")
                     .addSnapshotListener(object : EventListener<QuerySnapshot>{
                         override fun onEvent(
@@ -108,6 +116,12 @@ class ClinetActionAdapter(var clientList:ArrayList<ClientActionData>):RecyclerVi
 
             btnReject.setOnClickListener {
 
+                val sharedPref = holder.itemView.context.getSharedPreferences("careTaker", Context.MODE_PRIVATE)
+
+                val editor = sharedPref.edit()
+                editor.putString(currentPosiClient.uid.toString(), "Rejected")
+                editor.apply()
+
                 database.collection("VOLUNTEERS")
                     .addSnapshotListener(object : EventListener<QuerySnapshot>{
                         override fun onEvent(
@@ -127,7 +141,7 @@ class ClinetActionAdapter(var clientList:ArrayList<ClientActionData>):RecyclerVi
                                             if (uid == currentUser) {
 
                                                 database.collection("VOLUNTEERS").document(user)
-                                                    .update("hireStatus", "Un-Hired")
+                                                    .update("hireStatus", "Rejected")
                                                     .addOnSuccessListener {
 
                                                         btnAccept.isEnabled = false

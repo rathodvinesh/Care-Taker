@@ -81,6 +81,7 @@ class VolunteerRegistration : AppCompatActivity() {
                     val firebaseUser = auth.currentUser
                     val uid = firebaseUser?.uid ?: ""
                     val hireStatus = "Un-Hired"
+                    val hiredBy = "0"
                     val role="Volunteer"
 
                     val user = hashMapOf(
@@ -97,6 +98,7 @@ class VolunteerRegistration : AppCompatActivity() {
                         "amount" to amount,
                         "uid" to uid,
                         "hireStatus" to hireStatus,
+                        "hiredBy" to hiredBy,
                         "role" to role,
                         "description" to description
                     )

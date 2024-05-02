@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRxITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="SystemPermissionTypo" />
+
 
     <application
         android:allowBackup="true"
