@@ -34,10 +34,13 @@
         android:name="com.example.caretaker.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
-
     <fragment
         android:id="@+id/updateProfileFragment"
         android:name="com.example.caretaker.fragments.UpdateProfileFragment"
         android:label="UpdateProfileFragment"
-        tools:layout="@layout/fragment_update_profile"/>
+        tools:layout="@layout/fragment_update_profile">
+        <action
+            android:id="@+id/action_updateProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>

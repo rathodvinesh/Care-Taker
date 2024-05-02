@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.learnvinesh.volmodule.fragments.HomeVolunteerFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_volunteer_home" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.learnvinesh.volmodule.fragments.ProfileVolunteerFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_volunteer_profile" />
+    <fragment
+        android:id="@+id/applicationsFragment"
+        android:name="com.learnvinesh.volmodule.fragments.ApplicationsVolunteerFragment"
+        android:label="fragment_applcations"
+        tools:layout="@layout/fragment_volunteer_applcations" />
+<!--    <fragment-->
+<!--        android:id="@+id/searchFragment"-->
+<!--        android:name="com.example.volunteermodule.fragments.SearchFragment"-->
+<!--        android:label="fragment_search"-->
+<!--        tools:layout="@layout/fragment_volunteer_search" />-->
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.learnvinesh.volmodule.VolunteerMainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_volunteer_main" />
+</navigation>

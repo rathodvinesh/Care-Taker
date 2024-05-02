@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.learnvinesh.volmodule.fragments.ProfileVolunteerFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="295dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="109dp"
+            android:fontFamily="@font/source_serif_pro_bold"
+            android:gravity="center_horizontal"
+            android:text="Update Profile"
+            android:textAlignment="center"
+            android:textColor="@color/button_color"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="141dp"
+            android:layout_height="129dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="70dp"
+            android:src="@drawable/baseline_person_24" />
+
+        <Button
+            android:id="@+id/editpicVol"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="210dp"
+            android:backgroundTint="@color/button_color"
+            android:fontFamily="@font/source_serif_pro_bold"
+            android:text="Edit Picture"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextNmaeVol"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="280dp"
+            android:background="@drawable/text_shape"
+            android:ems="10"
+            android:fontFamily="@font/source_serif_pro"
+            android:hint="  Enter your name "
+            android:inputType="text"
+            android:paddingStart="10sp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/stroke_for_button"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+<!--        <EditText-->
+<!--            android:id="@+id/editTextServiceVol"-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginStart="120dp"-->
+<!--            android:layout_marginTop="700dp"-->
+<!--            android:background="@drawable/text_shape"-->
+<!--            android:ems="10"-->
+<!--            android:fontFamily="@font/source_serif_pro"-->
+<!--            android:gravity="start|top"-->
+<!--            android:hint="Enter your service"-->
+<!--            android:inputType="textMultiLine"-->
+<!--            android:paddingStart="10sp"-->
+<!--            android:paddingTop="2sp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/editTextshiftVol"-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginStart="120dp"-->
+<!--            android:layout_marginTop="640dp"-->
+<!--            android:background="@drawable/text_shape"-->
+<!--            android:ems="10"-->
+<!--            android:fontFamily="@font/source_serif_pro"-->
+<!--            android:gravity="start|top"-->
+<!--            android:hint="Enter your shift"-->
+<!--            android:inputType="textMultiLine"-->
+<!--            android:paddingStart="14sp"-->
+<!--            android:paddingTop="2sp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="285dp"
+            android:fontFamily="@font/source_serif_pro_bold"
+            android:paddingTop="2sp"
+            android:text="Name:"
+            android:textAlignment="center"
+            android:textColor="@color/button_color"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="57dp"
+            android:layout_marginTop="355dp"
+            android:fontFamily="@font/source_serif_pro_bold"
+            android:paddingTop="2sp"
+            android:text="Age:"
+            android:textAlignment="center"
+            android:textColor="@color/button_color"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextAgeVol"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="350dp"
+            android:background="@drawable/text_shape"
+            android:ems="10"
+            android:fontFamily="@font/source_serif_pro"
+            android:hint="Age"
+            android:inputType="text"
+            android:paddingStart="5dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="@color/stroke_for_button"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="355dp"
+            android:fontFamily="@font/source_serif_pro_bold"
+            android:paddingTop="2sp"
+            android:text="Gender:"
+            android:textColor="@color/button_color"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/radioBtnGenderVol"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="275dp"
+            android:layout_marginTop="345dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButtonMaleVol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="M"
+                android:textColor="@color/button_color"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/radioButtonFemaleVol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="F"
+                android:textColor="@color/button_color"
+                android:textSize="16sp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="425dp"
+            android:fontFamily="@font/source_serif_pro_bold"
+            android:paddingTop="3sp"
+            android:text="Contact:"
+            android:textAlignment="center"
+            android:textColor="@color/button_color"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextPhoneVol"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="125dp"
+            android:layout_marginTop="420dp"
+            android:background="@drawable/text_shape"
+            android:ems="10"
+            android:fontFamily="@font/source_serif_pro"
+            android:hint="10 digit number"
+            android:inputType="phone"
+            android:paddingStart="10sp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/stroke_for_button"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="495dp"
+            android:fontFamily="@font/source_serif_pro_bold"
+            android:paddingTop="2sp"
+            android:text="Address:"
+            android:textAlignment="center"
+            android:textColor="@color/button_color"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="575dp"
+            android:fontFamily="@font/source_serif_pro_bold"
+            android:paddingTop="2sp"
+            android:text="Location:"
+            android:textAlignment="center"
+            android:textColor="@color/button_color"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextlocationVol"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="570dp"
+            android:background="@drawable/text_shape"
+            android:ems="10"
+            android:fontFamily="@font/source_serif_pro"
+            android:hint="Enter your location"
+            android:inputType="text"
+            android:paddingStart="10sp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextTextPostalAddressVol"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="125dp"
+            android:layout_marginTop="490dp"
+            android:background="@drawable/text_shape"
+            android:ems="10"
+            android:fontFamily="@font/source_serif_pro"
+            android:hint="Enter your Address"
+            android:inputType="textPostalAddress"
+            android:paddingStart="10sp"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextamountVol"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="760dp"
+            android:background="@drawable/text_shape"
+            android:ems="10"
+            android:fontFamily="@font/source_serif_pro"
+            android:gravity="start|top"
+            android:hint="Enter your amount"
+            android:inputType="textMultiLine"
+            android:paddingStart="10sp"
+            android:paddingTop="2sp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView23"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="60dp"-->
+<!--            android:layout_marginTop="645dp"-->
+<!--            android:fontFamily="@font/source_serif_pro_bold"-->
+<!--            android:paddingTop="2sp"-->
+<!--            android:text="Shift: "-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/button_color"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="765dp"
+            android:fontFamily="@font/source_serif_pro_bold"
+            android:paddingTop="2sp"
+            android:text="Amount:"
+            android:textAlignment="center"
+            android:textColor="@color/button_color"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView14"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="30dp"-->
+<!--            android:layout_marginTop="705dp"-->
+<!--            android:fontFamily="@font/source_serif_pro_bold"-->
+<!--            android:paddingTop="2sp"-->
+<!--            android:text="Service:"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/button_color"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="660dp"
+            android:fontFamily="@font/source_serif_pro"
+            android:text="Shift:"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinnerShiftUpdateVol"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="650dp"
+            android:paddingStart="8dp"
+            android:spinnerMode="dropdown"
+            android:theme="@style/SpinnerTheme" />
+
+        <Spinner
+            android:id="@+id/spinnerServiceUpdateVol"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="725dp"
+            android:paddingStart="8dp"
+            android:spinnerMode="dropdown"
+            android:theme="@style/SpinnerTheme" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="740dp"
+            android:fontFamily="@font/source_serif_pro"
+            android:text="Service:"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="830dp"
+            android:fontFamily="@font/source_serif_pro_bold"
+            android:text="Description:"
+            android:textAlignment="center"
+            android:textColor="@color/button_color"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/tvDescVol"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="135dp"
+            android:layout_marginTop="820dp"
+            android:background="@drawable/text_shape"
+            android:fontFamily="@font/source_serif_pro"
+            android:hint="Enter your location"
+            android:inputType="textMultiLine"
+            android:paddingStart="10sp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/updateProfileBtnVol"
+            android:layout_width="288dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="900dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="40dp"
+            android:backgroundTint="@color/button_color"
+            android:fontFamily="@font/source_serif_pro_bold"
+            android:text="Update Profile"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </FrameLayout>
+</ScrollView>

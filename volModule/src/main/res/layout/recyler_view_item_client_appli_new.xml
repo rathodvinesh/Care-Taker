@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="389dp"
+        android:layout_height="110dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivApplication"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/baseline_check_24"
+            android:tint="#219526"
+            tools:ignore="UseAppTint" />
+
+        <ImageView
+            android:id="@+id/imageViewAppli"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/source_serif_pro_bold"
+            android:text="Name:"
+            android:textColor="@color/button_color"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/statusTextApplication"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/source_serif_pro_bold"
+            android:text="Request Accepted"
+            android:textColor="#219526"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/etNameVol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="170dp"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:fontFamily="@font/source_serif_pro"
+            android:inputType="text"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

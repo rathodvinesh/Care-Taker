@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.learnvinesh.volmodule.VolunteerRegistration">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="142dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="142dp"
+                android:fontFamily="@font/source_serif_pro_bold"
+                android:text="Register "
+                android:textColor="@color/button_color"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="125dp"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="Name:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextNameVol"
+                android:layout_width="245sp"
+                android:layout_height="50sp"
+                android:layout_marginStart="125dp"
+                android:layout_marginTop="115dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/text_shape"
+                android:ems="10"
+                android:fontFamily="@font/source_serif_pro"
+                android:hint="Enter your name "
+                android:inputType="text"
+                android:paddingStart="10sp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/button_color"
+                android:textColorHint="@color/button_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="205dp"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="Email:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextEmailAddressVol"
+                android:layout_width="245sp"
+                android:layout_height="50sp"
+                android:layout_marginStart="125dp"
+                android:layout_marginTop="195dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/text_shape"
+                android:ems="10"
+                android:fontFamily="@font/source_serif_pro"
+                android:hint="Enter your email"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="10sp"
+                android:textColor="@color/button_color"
+                android:textColorHint="@color/button_color"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="285dp"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="Password:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextPasswordVol"
+                android:layout_width="245sp"
+                android:layout_height="50sp"
+                android:layout_marginStart="125dp"
+                android:layout_marginTop="270dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/text_shape"
+                android:ems="10"
+                android:fontFamily="@font/source_serif_pro"
+                android:hint="Enter password"
+                android:inputType="textPassword"
+                android:paddingLeft="10sp"
+                android:textColor="@color/button_color"
+                android:textColorHint="@color/button_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/signUpBtnReg"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="1080dp"
+                android:layout_marginBottom="40dp"
+                android:backgroundTint="@color/button_color"
+                android:fontFamily="@font/source_serif_pro_bold"
+                android:text="Create Account"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextPasswordVol" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="360dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="1000dp"
+                android:fontFamily="@font/source_serif_pro"
+                android:paddingStart="65sp"
+                android:text="Already have an account ?"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signUpBtnReg" />
+
+            <TextView
+                android:id="@+id/textViewSignIn"
+                android:layout_width="126dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="1040dp"
+                android:fontFamily="@font/source_serif_pro_bold"
+                android:paddingStart="40sp"
+                android:text="Sign in"
+                android:textColor="@color/button_color"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="365dp"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="Age:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextAgeVol"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="350dp"
+                android:background="@drawable/text_shape"
+                android:ems="10"
+                android:fontFamily="@font/source_serif_pro"
+                android:hint="Age"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:textColor="@color/button_color"
+                android:textColorHint="@color/button_color"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="190dp"
+                android:layout_marginTop="365dp"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="Gender:"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/radioBtnGenderVol"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="270dp"
+                android:layout_marginTop="355dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButtonMaleVol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/source_serif_pro"
+                    android:text="M"
+                    android:textColor="@color/button_color"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonFemaleVol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/source_serif_pro"
+                    android:text="F"
+                    android:textColor="@color/button_color"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="435dp"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="Contact:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextPhoneVol"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="125dp"
+                android:layout_marginTop="425dp"
+                android:background="@drawable/text_shape"
+                android:ems="10"
+                android:fontFamily="@font/source_serif_pro"
+                android:hint="10 digit number"
+                android:inputType="phone"
+                android:paddingStart="10sp"
+                android:textColor="@color/button_color"
+                android:textColorHint="@color/button_color"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="515dp"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="Address:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="595dp"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="Location:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextLocationVol"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="585dp"
+                android:background="@drawable/text_shape"
+                android:ems="10"
+                android:fontFamily="@font/source_serif_pro"
+                android:hint="Enter your location"
+                android:inputType="text"
+                android:paddingStart="10sp"
+                android:textColor="@color/button_color"
+                android:textColorHint="@color/button_color"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextPostalAddressVol"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="125dp"
+                android:layout_marginTop="500dp"
+                android:background="@drawable/text_shape"
+                android:ems="10"
+                android:fontFamily="@font/source_serif_pro"
+                android:hint="Enter your Address"
+                android:inputType="textPostalAddress"
+                android:paddingStart="10sp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/button_color"
+                android:textColorHint="@color/button_color"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="660dp"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="Shift:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/spinnerShift"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="650dp"
+                android:paddingStart="8dp"
+                android:spinnerMode="dropdown"
+                android:theme="@style/SpinnerTheme" />
+
+            <Spinner
+                android:id="@+id/spinnerService"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="725dp"
+                android:paddingStart="8dp"
+                android:spinnerMode="dropdown"
+                android:theme="@style/SpinnerTheme" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="740dp"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="Service:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextAmountVol"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="810dp"
+                android:background="@drawable/text_shape"
+                android:ems="10"
+                android:fontFamily="@font/source_serif_pro"
+                android:gravity="start|center"
+                android:paddingStart="10sp"
+                android:textColor="@color/button_color"
+                android:textColorHint="@color/button_color"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="820dp"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="Amount:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="885dp"
+                android:fontFamily="@font/source_serif_pro"
+                android:text="Description:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextDescriptionVol"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="880dp"
+                android:background="@drawable/text_shape"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="textMultiLine"
+                android:fontFamily="@font/source_serif_pro"
+                android:textColor="@color/button_color"
+                android:textColorHint="@color/button_color"
+                android:textSize="16sp" />
+        </FrameLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

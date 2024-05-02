@@ -22,6 +22,10 @@ android {
         viewBinding = true
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.1"
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -51,10 +55,24 @@ dependencies {
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.storage)
+    implementation(libs.firebase.database.ktx)
+    implementation(libs.androidx.ui.android)
+    implementation(libs.androidx.material3.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation(project(":volModule"))
+    //password toggle
+    implementation("com.google.android.material:material:<version>")
+    //image slider
+    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.0")
+
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+
+
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
+    implementation ("androidx.recyclerview:recyclerview:1.3.2")
 
     //navigation
     implementation ("androidx.navigation:navigation-fragment-ktx:2.7.7")
@@ -62,5 +80,7 @@ dependencies {
 
     //chip bottom bar
     implementation("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
+
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 
 }
