@@ -28,7 +28,7 @@
             android:textAlignment="viewStart"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,6 +41,16 @@
 
         </ProgressBar>
 
+        <TextView
+            android:id="@+id/NoApplicationSearch"
+            android:text="No applications found"
+            android:textSize="20dp"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <!-- TODO: Update blank fragment layout -->
 
 
@@ -49,7 +59,7 @@
             android:id="@+id/rvSearch"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/recycler_view_item_client" />
 

@@ -20,7 +20,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/NoApplications"
+        android:id="@+id/NoApplicationsAppli"
         android:text="No applications found"
         android:textSize="20dp"
         android:visibility="gone"

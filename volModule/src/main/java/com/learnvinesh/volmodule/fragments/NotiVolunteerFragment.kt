@@ -92,13 +92,14 @@ class NotiVolunteerFragment : Fragment() {
 
                                         if(hire!=null){
                                             EventChangeListner(hire)
-//                                            binding.NoApplications.visibility = View.GONE
+                                            binding.NoApplicationsNoti.visibility = View.GONE
                                         }
                                         else{
-//                                            binding.NoApplications.visibility = View.VISIBLE
+                                            binding.NoApplicationsNoti.visibility = View.VISIBLE
                                         }
                                         Log.i("volUserRef", uid)
                                     } else {
+//                                        binding.NoApplicationsNoti.visibility = View.VISIBLE
                                         Log.e("volUserRef", "Document does not exist")
                                     }
                                 }
@@ -118,6 +119,7 @@ class NotiVolunteerFragment : Fragment() {
             .addSnapshotListener { value, error ->
                 if (error != null) {
                     Log.e("Firestore error: ", error.message.toString())
+//                    binding.NoApplicationsNoti.visibility = View.VISIBLE
                     return@addSnapshotListener
                 }
 
@@ -126,11 +128,18 @@ class NotiVolunteerFragment : Fragment() {
                     val clientData = document.toObject(ClientActionData::class.java)
                     if (clientData != null) {
                         cliAppliArrayList.add(clientData)
+//                        binding.NoApplicationsNoti.visibility = View.GONE
                     }
                 }
                 // Update the RecyclerView adapter after processing the data
                 adapter.notifyDataSetChanged()
                 recyclerView.adapter=adapter
+
+//                if (cliAppliArrayList.isEmpty()) {
+//                    binding.NoApplicationsNoti.visibility = View.VISIBLE
+//                } else {
+//                    binding.NoApplicationsNoti.visibility = View.GONE
+//                }
             }
     }
 

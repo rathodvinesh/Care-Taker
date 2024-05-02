@@ -69,7 +69,7 @@ class ApplicationsFragment : Fragment() {
                         }
                     }
                 }
-                Log.d("datahere", volAppliArrayList.toString())
+//                Log.d("datahere", volAppliArrayList.toString())
 //                adapter.notifyDataSetChanged()
 //                        adapter.notifyItemInserted(volArrayList.size-1)
                 recyclerView.adapter=adapter

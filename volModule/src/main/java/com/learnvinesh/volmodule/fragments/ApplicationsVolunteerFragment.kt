@@ -76,11 +76,12 @@ class ApplicationsVolunteerFragment : Fragment() {
                                         if(hire == "Pending"){
                                             if (clientUid != null) {
                                                 EventChangeListener(clientUid)
+                                            binding.NoApplicationsAppli.visibility = View.GONE
                                             }
-                                            binding.NoApplications.visibility = View.GONE
+//                                            binding.NoApplicationsAppli.visibility = View.VISIBLE
                                         }
                                         else{
-                                            binding.NoApplications.visibility = View.VISIBLE
+                                            binding.NoApplicationsAppli.visibility = View.VISIBLE
                                         }
                                         Log.i("volUserRef", uid)
                                     } else {

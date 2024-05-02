@@ -8,6 +8,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.compose.material3.TopAppBar
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -58,12 +60,20 @@ class ProfileFragment : Fragment() {
         val storageReference = FirebaseStorage.getInstance().reference
         val imageRef = storageReference.child("/Profile_Photos/${userUid}")
 
+        Log.d("userklcmskchdsf", imageRef.toString())
+
+        imageRef.downloadUrl.addOnSuccessListener {
+            Glide.with(requireContext())
+                .load(it)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .error(R.drawable.baseline_person_24)
+                .into(binding.imageViewProfileClient)
+        }.addOnFailureListener {
+//            Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT).show()
+        }
+
         // Download directly from StorageReference using Glide
-        Glide.with(requireContext())
-            .load(imageRef)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .error(R.drawable.baseline_person_24)
-            .into(binding.imageViewProfileClient)
+
 
         retrieveUserProfileData(currentUserEmail,userUid)
 

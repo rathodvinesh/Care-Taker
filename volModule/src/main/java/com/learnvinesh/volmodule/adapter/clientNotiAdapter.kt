@@ -3,13 +3,18 @@ package com.learnvinesh.volmodule.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.PorterDuff
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.google.firebase.storage.FirebaseStorage
 import com.learnvinesh.volmodule.R
 import com.learnvinesh.volmodule.model.ClientActionData
 
@@ -19,6 +24,7 @@ class clientNotiAdapter(val cAppliList:ArrayList<ClientActionData>):RecyclerView
         var nameTV = itemView.findViewById<TextView>(R.id.etNameVol)
         var statusImage = itemView.findViewById<ImageView>(R.id.ivApplication)
         var statusText = itemView.findViewById<TextView>(R.id.statusTextApplication)
+        val imageUser = itemView.findViewById<ImageView>(R.id.imageViewAppli)
     }
 
     override fun onCreateViewHolder(
@@ -35,6 +41,22 @@ class clientNotiAdapter(val cAppliList:ArrayList<ClientActionData>):RecyclerView
         position: Int
     ) {
         val curPosition = cAppliList[position]
+
+
+        val storageReference = FirebaseStorage.getInstance().reference
+        val imageRef = storageReference.child("/Profile_Photos/${curPosition.uid}")
+
+        Log.d("userklcmskchdsf", imageRef.toString())
+
+        imageRef.downloadUrl.addOnSuccessListener {
+            Glide.with(holder.itemView.context)
+                .load(it)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .error(R.drawable.baseline_person_24)
+                .into(holder.imageUser)
+        }.addOnFailureListener {
+//            Toast.makeText(holder.itemView.context, it.message.toString(), Toast.LENGTH_SHORT).show()
+        }
 
         val sharedPref = holder.itemView.context.getSharedPreferences("careTaker", Context.MODE_PRIVATE)
         val userStatus = sharedPref.getString(curPosition.uid.toString(), "xyz")

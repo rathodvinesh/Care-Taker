@@ -2,23 +2,29 @@ package com.example.caretaker.adapter
 
 import android.annotation.SuppressLint
 import android.graphics.PorterDuff
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.compose.ui.layout.Layout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.caretaker.R
 import com.example.caretaker.models.VolunteerApplication
+import com.google.firebase.storage.FirebaseStorage
 
 class VolunteerApplicationsAdapter(var volApplis:ArrayList<VolunteerApplication>):RecyclerView.Adapter<VolunteerApplicationsAdapter.VolunteerApplicationViewHolder>() {
     inner class VolunteerApplicationViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
         var nameTV = itemView.findViewById<TextView>(R.id.etName)
         var statusImage = itemView.findViewById<ImageView>(R.id.ivApplication)
         var statusText = itemView.findViewById<TextView>(R.id.statusTextApplication)
+        var userImage = itemView.findViewById<ImageView>(R.id.imageViewUser)
     }
 
     override fun onCreateViewHolder(
@@ -35,6 +41,21 @@ class VolunteerApplicationsAdapter(var volApplis:ArrayList<VolunteerApplication>
         position: Int
     ) {
         val curPosition = volApplis[position]
+
+        val storageReference = FirebaseStorage.getInstance().reference
+        val imageRef = storageReference.child("/Profile_Photos/${curPosition.uid}")
+
+        Log.d("userklcmskchdsf", imageRef.toString())
+
+        imageRef.downloadUrl.addOnSuccessListener {
+            Glide.with(holder.itemView.context)
+                .load(it)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .error(R.drawable.baseline_person_24)
+                .into(holder.userImage)
+        }.addOnFailureListener {
+//            Toast.makeText(holder.itemView.context, it.message.toString(), Toast.LENGTH_SHORT).show()
+        }
 
         if (curPosition.hireStatus == "Pending") {
             holder.nameTV.text = curPosition.name

@@ -6,8 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.caretaker.ProfileOfVolunteer
 import com.example.caretaker.R
 import com.example.caretaker.models.Volunteer
@@ -17,6 +21,7 @@ import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.storage.FirebaseStorage
 
 class VolunteerAdapter( var volunteerList:ArrayList<Volunteer>) :RecyclerView.Adapter<VolunteerAdapter.VolunteersViewHolder>() {
 
@@ -46,6 +51,21 @@ class VolunteerAdapter( var volunteerList:ArrayList<Volunteer>) :RecyclerView.Ad
                 serviceTextView.text = curPosi.service
                 shiftTextView.text = curPosi.shift
                 amountTextView.text = curPosi.amount.toString()
+
+            val storageReference = FirebaseStorage.getInstance().reference
+            val imageRef = storageReference.child("/Profile_Photos/${curPosi.uid}")
+
+            Log.d("userklcmskchdsf", imageRef.toString())
+
+            imageRef.downloadUrl.addOnSuccessListener {
+                Glide.with(holder.itemView.context)
+                    .load(it)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .error(R.drawable.baseline_person_24)
+                    .into(holder.imageUser)
+            }.addOnFailureListener {
+//                Toast.makeText(holder.itemView.context, it.message.toString(), Toast.LENGTH_SHORT).show()
+            }
 
                 if (curPosi.hireStatus != "Un-Hired") {
                     btnHire.text = "Requested"
@@ -117,6 +137,7 @@ class VolunteerAdapter( var volunteerList:ArrayList<Volunteer>) :RecyclerView.Ad
         val amountTextView: TextView = itemView.findViewById(R.id.amountTV)
         val btnHire: Button = itemView.findViewById(R.id.hireBtn)
         val btnProfile:Button = itemView.findViewById(R.id.profileBtn)
+        val imageUser:ImageView = itemView.findViewById(R.id.imageViewUserSearch)
 //        private val statusTextView: TextView = itemView.findViewById(R.id.statusTV)
 
 

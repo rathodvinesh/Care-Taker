@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.caretaker.MainActivity
 import com.example.caretaker.R
 import com.example.caretaker.databinding.FragmentUpdateProfileBinding
@@ -31,6 +32,7 @@ class UpdateProfileFragment : Fragment() {
 
     private lateinit var selectedImageUri: Uri
     private lateinit var storageRef: StorageReference
+    private lateinit var storage:FirebaseStorage
 
 
 
@@ -49,10 +51,29 @@ class UpdateProfileFragment : Fragment() {
 
         navController = (requireActivity() as MainActivity).navController
 
-        storageRef = FirebaseStorage.getInstance().reference
-
         mAuth = FirebaseAuth.getInstance()
+        storage = FirebaseStorage.getInstance()
         firestore = FirebaseFirestore.getInstance()
+
+        // Retrieve user profile data
+        val userUid = mAuth.currentUser?.uid.toString()
+
+        Log.d("userklcmskf", userUid)
+
+        val storageReference = FirebaseStorage.getInstance().reference
+        val imageRef = storageReference.child("/Profile_Photos/${userUid}")
+
+        Log.d("userklcmskchdsf", imageRef.toString())
+
+        imageRef.downloadUrl.addOnSuccessListener {
+            Glide.with(requireContext())
+                .load(it)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .error(R.drawable.baseline_person_24)
+                .into(binding.imageView4)
+        }.addOnFailureListener {
+//            Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT).show()
+        }
 
         val userEmail = mAuth.currentUser?.email
 
