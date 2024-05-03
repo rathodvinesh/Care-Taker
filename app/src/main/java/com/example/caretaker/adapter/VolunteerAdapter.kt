@@ -1,5 +1,6 @@
 package com.example.caretaker.adapter
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.caretaker.ProfileOfVolunteer
 import com.example.caretaker.R
 import com.example.caretaker.models.Volunteer
+import com.example.caretaker.models.VolunteerApplication
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.EventListener
@@ -67,16 +69,51 @@ class VolunteerAdapter( var volunteerList:ArrayList<Volunteer>) :RecyclerView.Ad
 //                Toast.makeText(holder.itemView.context, it.message.toString(), Toast.LENGTH_SHORT).show()
             }
 
-                if (curPosi.hireStatus != "Un-Hired") {
+            if(curPosi.hireStatus=="Hired"){
+                btnHire.text ="Hired"
+                btnHire.isEnabled = false
+            }
+
+            if(curPosi.hiredBy==currUser) {
+                if (curPosi.hireStatus == "Pending") {
                     btnHire.text = "Requested"
-                }
-                if(curPosi.hireStatus=="Hired"){
-                    btnHire.text ="Hired"
+                }else if (curPosi.hireStatus == "Rejected") {
+                    btnHire.text = "Rejected"
                     btnHire.isEnabled = false
                 }
-                if(curPosi.hireStatus=="Rejected"){
-                    btnHire.text ="Hire"
-                }
+            }
+
+
+//            databaseb = FirebaseFirestore.getInstance()
+//            database.collection("VOLUNTEERS").
+//            addSnapshotListener(object : EventListener<QuerySnapshot> {
+//                @SuppressLint("NotifyDataSetChanged")
+//                override fun onEvent(
+//                    value: QuerySnapshot?,
+//                    error: FirebaseFirestoreException?
+//                ) {
+//                    if(error!=null){
+//                        Log.e("Firestore error: ",error.message.toString())
+//                        return
+//                    }
+//                    for(dc: DocumentChange in value?.documentChanges!!){
+//                        if(dc.type == DocumentChange.Type.ADDED){
+//                            if (dc.document.toObject(VolunteerApplication::class.java).hireStatus=="Pending" || dc.document.toObject(
+//                                    VolunteerApplication::class.java).hireStatus=="Hired" || dc.document.toObject(
+//                                    VolunteerApplication::class.java).hireStatus=="Rejected") {
+//                                if(dc.document.toObject(VolunteerApplication::class.java).hiredBy==auth)
+//                                    volAppliArrayList.add(dc.document.toObject(VolunteerApplication::class.java))
+//                                binding.NoApplicationAppli.visibility=View.GONE
+//                            }
+//                        }
+//                    }
+////                Log.d("datahere", volAppliArrayList.toString())
+////                adapter.notifyDataSetChanged()
+////                        adapter.notifyItemInserted(volArrayList.size-1)
+//                    recyclerView.adapter=adapter
+//                }
+//
+//            })
 
                 btnHire.setOnClickListener {
                     database.collection("VOLUNTEERS")
@@ -109,15 +146,16 @@ class VolunteerAdapter( var volunteerList:ArrayList<Volunteer>) :RecyclerView.Ad
                     // Handle item click
                     val context = holder.itemView.context
                     val intent = Intent(context, ProfileOfVolunteer::class.java).apply {
-                        putExtra("name", curPosi.name)
-                        putExtra("contact", curPosi.contact)
-                        putExtra("age", curPosi.age.toString())
-                        putExtra("gender", curPosi.gender)
-                        putExtra("address", curPosi.address)
-                        putExtra("location", curPosi.location)
-                        putExtra("service", curPosi.service)
-                        putExtra("shift", curPosi.shift)
-                        putExtra("amount", curPosi.amount.toString())
+                        putExtra("volUid",curPosi.uid)
+//                        putExtra("name", curPosi.name)
+//                        putExtra("contact", curPosi.contact)
+//                        putExtra("age", curPosi.age.toString())
+//                        putExtra("gender", curPosi.gender)
+//                        putExtra("address", curPosi.address)
+//                        putExtra("location", curPosi.location)
+//                        putExtra("service", curPosi.service)
+//                        putExtra("shift", curPosi.shift)
+//                        putExtra("amount", curPosi.amount.toString())
                     }
                     context.startActivity(intent)
 

@@ -188,7 +188,7 @@
         <TextView
             android:id="@+id/locationText"
             android:layout_width="200dp"
-            android:layout_height="50dp"
+            android:layout_height="53dp"
             android:layout_marginStart="125dp"
             android:layout_marginTop="570dp"
             android:ems="10"
@@ -201,10 +201,10 @@
 
         <TextView
             android:id="@+id/sufferingText"
-            android:layout_width="200dp"
+            android:layout_width="191dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="125dp"
-            android:layout_marginTop="640dp"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="650dp"
             android:ems="10"
             android:fontFamily="@font/source_serif_pro"
             android:gravity="start|top"
@@ -231,13 +231,12 @@
 
         <TextView
             android:id="@+id/textView23"
-            android:layout_width="120dp"
+            android:layout_width="99dp"
             android:layout_height="60dp"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="645dp"
             android:fontFamily="@font/source_serif_pro_bold"
             android:text="Suffering from:"
-            android:textAlignment="center"
             android:textColor="@color/button_color"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"

@@ -66,9 +66,14 @@ class SearchFragment : Fragment() {
                         }
                         for(dc:DocumentChange in value?.documentChanges!!){
                             if(dc.type == DocumentChange.Type.ADDED){
+                                if (dc.document.toObject(Volunteer::class.java).hireStatus=="Hired"){
+
+                                }
                                 volArrayList.add(dc.document.toObject(Volunteer::class.java))
+//                                volArrayList.add(dc.document.toObject(Volunteer::class.java))
+//                                    binding.NoApplicationSearch.visibility=View.GONE
+                                }
                             }
-                        }
 //                        adapter.notifyDataSetChanged()
 //                        adapter.notifyItemInserted(volArrayList.size-1)
                         recyclerView.adapter=adapter

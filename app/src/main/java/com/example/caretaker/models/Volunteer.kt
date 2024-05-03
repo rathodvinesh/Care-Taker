@@ -10,6 +10,8 @@ data class Volunteer(
     var service: String?=null,
     var shift:String?=null,
     var amount: String?=null,
+    val desc:String?=null,
+    val hiredBy:String?=null,
     var hireStatus:String?=null,
     var uid: String? = null
 )

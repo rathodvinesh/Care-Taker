@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.caretaker.adapter.VolunteerApplicationsAdapter
 import com.example.caretaker.databinding.FragmentApplcationsBinding
+import com.example.caretaker.models.Volunteer
 import com.example.caretaker.models.VolunteerApplication
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
@@ -27,6 +29,7 @@ class ApplicationsFragment : Fragment() {
     private lateinit var db: FirebaseFirestore
     private lateinit var recyclerView: RecyclerView
     private lateinit var volAppliArrayList:ArrayList<VolunteerApplication>
+    private var auth = FirebaseAuth.getInstance().currentUser?.uid
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -35,6 +38,7 @@ class ApplicationsFragment : Fragment() {
     ): View? {
         binding = FragmentApplcationsBinding.inflate(layoutInflater, container, false)
 
+        db= FirebaseFirestore.getInstance()
 
         recyclerView = binding.rvAppli
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -44,6 +48,32 @@ class ApplicationsFragment : Fragment() {
 
         adapter = VolunteerApplicationsAdapter(volAppliArrayList)
 
+//
+//        db.collection("VOLUNTEERS")
+//            .addSnapshotListener(object : EventListener<QuerySnapshot> {
+//                override fun onEvent(
+//                    value: QuerySnapshot?,
+//                    error: FirebaseFirestoreException?
+//                ) {
+//                    for (dc: DocumentChange in value?.documentChanges!!) {
+//                        if (dc.type == DocumentChange.Type.ADDED) {
+//                            if (dc.document.toObject(VolunteerApplication::class.java).hiredBy == auth) {
+//                                val user = dc.document.id
+//                                Log.d("docid", user.toString())
+//
+//                                EventChangeListner()
+//                                binding.NoApplicationAppli.visibility=View.GONE
+//                            }
+//                            else{
+//                                binding.NoApplicationAppli.visibility=View.VISIBLE
+//                            }
+//                        }
+//                        else{
+//                            binding.NoApplicationAppli.visibility=View.GONE                        }
+//                    }
+//                }
+//
+//            })
         EventChangeListner()
 
         return binding.root
@@ -53,7 +83,6 @@ class ApplicationsFragment : Fragment() {
         db = FirebaseFirestore.getInstance()
         db.collection("VOLUNTEERS").
         addSnapshotListener(object : EventListener<QuerySnapshot> {
-            @SuppressLint("NotifyDataSetChanged")
             override fun onEvent(
                 value: QuerySnapshot?,
                 error: FirebaseFirestoreException?
@@ -64,9 +93,15 @@ class ApplicationsFragment : Fragment() {
                 }
                 for(dc: DocumentChange in value?.documentChanges!!){
                     if(dc.type == DocumentChange.Type.ADDED){
-                        if (dc.document.toObject(VolunteerApplication::class.java).hireStatus != "Un-Hired") {
-                            volAppliArrayList.add(dc.document.toObject(VolunteerApplication::class.java))
+                        if (dc.document.toObject(VolunteerApplication::class.java).hireStatus=="Pending" || dc.document.toObject(VolunteerApplication::class.java).hireStatus=="Hired" || dc.document.toObject(VolunteerApplication::class.java).hireStatus=="Rejected") {
+                            if(dc.document.toObject(VolunteerApplication::class.java).hiredBy==auth){
+                                volAppliArrayList.add(dc.document.toObject(VolunteerApplication::class.java))
+                                binding.NoApplicationAppli.visibility=View.GONE
+                            }
                         }
+                    }
+                    else{
+                        binding.NoApplicationAppli.visibility=View.VISIBLE
                     }
                 }
 //                Log.d("datahere", volAppliArrayList.toString())

@@ -184,13 +184,13 @@ class ClinetActionAdapter(var clientList:ArrayList<ClientActionData>):RecyclerVi
                 // Handle item click
                 val context = holder.itemView.context
                 val intent = Intent(context, ProfileOfClient::class.java).apply {
-                    putExtra("name", currentPosiClient.name)
-                    putExtra("contact", currentPosiClient.contact)
-                    putExtra("age", currentPosiClient.age.toString())
-                    putExtra("gender", currentPosiClient.gender)
-                    putExtra("address", currentPosiClient.address)
-                    putExtra("location", currentPosiClient.location)
-                    putExtra("suffering", currentPosiClient.suffering)
+                    putExtra("uidCli", currentPosiClient.uid)
+//                    putExtra("contact", currentPosiClient.contact)
+//                    putExtra("age", currentPosiClient.age.toString())
+//                    putExtra("gender", currentPosiClient.gender)
+//                    putExtra("address", currentPosiClient.address)
+//                    putExtra("location", currentPosiClient.location)
+//                    putExtra("suffering", currentPosiClient.suffering)
                 }
                 context.startActivity(intent)
 

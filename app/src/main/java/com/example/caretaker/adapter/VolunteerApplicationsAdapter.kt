@@ -17,9 +17,13 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.caretaker.R
 import com.example.caretaker.models.VolunteerApplication
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 
 class VolunteerApplicationsAdapter(var volApplis:ArrayList<VolunteerApplication>):RecyclerView.Adapter<VolunteerApplicationsAdapter.VolunteerApplicationViewHolder>() {
+
+    private var auth = FirebaseAuth.getInstance()
+
     inner class VolunteerApplicationViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
         var nameTV = itemView.findViewById<TextView>(R.id.etName)
         var statusImage = itemView.findViewById<ImageView>(R.id.ivApplication)
@@ -42,6 +46,8 @@ class VolunteerApplicationsAdapter(var volApplis:ArrayList<VolunteerApplication>
     ) {
         val curPosition = volApplis[position]
 
+//        auth = auth.currentUser.uid.toString()
+
         val storageReference = FirebaseStorage.getInstance().reference
         val imageRef = storageReference.child("/Profile_Photos/${curPosition.uid}")
 
@@ -56,6 +62,8 @@ class VolunteerApplicationsAdapter(var volApplis:ArrayList<VolunteerApplication>
         }.addOnFailureListener {
 //            Toast.makeText(holder.itemView.context, it.message.toString(), Toast.LENGTH_SHORT).show()
         }
+
+//        if(curPosition.uid == )
 
         if (curPosition.hireStatus == "Pending") {
             holder.nameTV.text = curPosition.name
