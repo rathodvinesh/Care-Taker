@@ -25,7 +25,7 @@
             tools:ignore="UseAppTint" />
 
         <ImageView
-            android:id="@+id/imageViewUser"
+            android:id="@+id/imageViewAppli"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             tools:src="@tools:sample/avatars" />
@@ -54,7 +54,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/etName"
+            android:id="@+id/etNameVol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="170dp"

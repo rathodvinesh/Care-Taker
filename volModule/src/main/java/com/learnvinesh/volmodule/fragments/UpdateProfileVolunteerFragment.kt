@@ -1,6 +1,9 @@
 package com.learnvinesh.volmodule.fragments
 
+import android.app.Activity
 import android.content.ContentValues.TAG
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,8 +14,12 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import com.learnvinesh.volmodule.R
 import com.learnvinesh.volmodule.databinding.FragmentVolunteerUpdateProfileBinding
 
@@ -20,6 +27,11 @@ class UpdateProfileVolunteerFragment : Fragment() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
     private lateinit var binding: FragmentVolunteerUpdateProfileBinding
+
+    private lateinit var selectedImageUri: Uri
+    private lateinit var storageRef: StorageReference
+
+    private val PICK_IMAGE_REQUEST = 100
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,20 +44,37 @@ class UpdateProfileVolunteerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        storageRef = FirebaseStorage.getInstance().reference
         mAuth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
-        // Inside onViewCreated or onCreateView
+        val userUid = mAuth.currentUser?.uid.toString()
 
-// Define arrays or lists of items for the spinners
+        Log.d("userklcmskf", userUid)
+
+//        storageRef = FirebaseStorage.getInstance().reference
+        val imageRef = storageRef.child("/Profile_Photos/${userUid}")
+
+        Log.d("userklcmskchdsf", imageRef.toString())
+
+        imageRef.downloadUrl.addOnSuccessListener {
+            Glide.with(requireContext())
+                .load(it)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .error(R.drawable.baseline_person_24)
+                .into(binding.imageView4)
+        }.addOnFailureListener {
+//            Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT).show()
+        }
+
         val shiftOptions = arrayOf("Day", "Night", "Both")
         val serviceOptions = arrayOf("Voluntarily", "Charged")
 
-// Create ArrayAdapter instances for the spinners
+
         val shiftAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, shiftOptions)
         val serviceAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, serviceOptions)
 
-// Set adapters to the spinners
+
         binding.spinnerShiftUpdateVol.adapter = shiftAdapter
         binding.spinnerServiceUpdateVol.adapter = serviceAdapter
 
@@ -58,6 +87,46 @@ class UpdateProfileVolunteerFragment : Fragment() {
 
         binding.updateProfileBtnVol.setOnClickListener {
             updateUserProfileData(userEmail)
+        }
+
+        binding.editpicVol.setOnClickListener {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "image/*"
+            startActivityForResult(intent, PICK_IMAGE_REQUEST)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
+            selectedImageUri = data.data!!
+            // Now you have the selected image URI, you can upload it to Firebase Storage
+            uploadImageToStorage(selectedImageUri)
+        }
+
+    }
+
+    private fun uploadImageToStorage(imageUri: Uri) {
+        val currentUser = mAuth.currentUser
+        val uid = currentUser?.uid
+        uid?.let { userId ->
+            val imageRef = storageRef.child("Profile_Photos/$userId")
+            imageRef.putFile(imageUri)
+                .addOnSuccessListener { taskSnapshot ->
+                    // Get the download URL of the uploaded image
+                    imageRef.downloadUrl.addOnSuccessListener { uri ->
+                        Glide.with(requireContext())
+                            .load(uri)
+                            .into(binding.imageView4)
+                        Toast.makeText(requireContext(), "Image uploaded successfully", Toast.LENGTH_SHORT).show()
+                        // Handle success, e.g., update profile with image URL
+                        // Here you can call a function to update the user's profile with the image URL
+                    }
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(requireContext(), "Failed to upload image: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 

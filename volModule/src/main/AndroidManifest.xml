@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -14,18 +15,19 @@
         android:theme="@style/Theme.CareTaker"
         tools:targetApi="31">
         <activity
-            android:name="com.learnvinesh.volmodule.VolunteerRegistration"
+            android:name=".ProfileOfClient"
             android:exported="false" />
         <activity
-            android:name="com.learnvinesh.volmodule.VolunteerPreLogin"
-            android:exported="false">
-
-        </activity>
-        <activity
-            android:name="com.learnvinesh.volmodule.VolunteerMainActivity"
+            android:name=".VolunteerRegistration"
             android:exported="false" />
         <activity
-            android:name="com.learnvinesh.volmodule.VolunteerLogin"
+            android:name=".VolunteerPreLogin"
+            android:exported="false"></activity>
+        <activity
+            android:name=".VolunteerMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VolunteerLogin"
             android:exported="false" />
 
         <meta-data

@@ -1,25 +1,34 @@
 package com.example.caretaker.adapter
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.caretaker.ProfileOfVolunteer
 import com.example.caretaker.R
 import com.example.caretaker.models.Volunteer
+import com.example.caretaker.models.VolunteerApplication
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.storage.FirebaseStorage
 
 class VolunteerAdapter( var volunteerList:ArrayList<Volunteer>) :RecyclerView.Adapter<VolunteerAdapter.VolunteersViewHolder>() {
 
     private val  database = FirebaseFirestore.getInstance()
+    private val currUser=FirebaseAuth.getInstance().currentUser?.uid.toString()
 //    var onItemClick:((Volunteer)->Unit)?=null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VolunteerAdapter.VolunteersViewHolder {
@@ -45,13 +54,66 @@ class VolunteerAdapter( var volunteerList:ArrayList<Volunteer>) :RecyclerView.Ad
                 shiftTextView.text = curPosi.shift
                 amountTextView.text = curPosi.amount.toString()
 
-                if (curPosi.hireStatus != "Un-Hired") {
+            val storageReference = FirebaseStorage.getInstance().reference
+            val imageRef = storageReference.child("/Profile_Photos/${curPosi.uid}")
+
+            Log.d("userklcmskchdsf", imageRef.toString())
+
+            imageRef.downloadUrl.addOnSuccessListener {
+                Glide.with(holder.itemView.context)
+                    .load(it)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .error(R.drawable.baseline_person_24)
+                    .into(holder.imageUser)
+            }.addOnFailureListener {
+//                Toast.makeText(holder.itemView.context, it.message.toString(), Toast.LENGTH_SHORT).show()
+            }
+
+            if(curPosi.hireStatus=="Hired"){
+                btnHire.text ="Hired"
+                btnHire.isEnabled = false
+            }
+
+            if(curPosi.hiredBy==currUser) {
+                if (curPosi.hireStatus == "Pending") {
                     btnHire.text = "Requested"
-                }
-                if(curPosi.hireStatus=="Hired"){
-                    btnHire.text ="Hired"
+                }else if (curPosi.hireStatus == "Rejected") {
+                    btnHire.text = "Rejected"
                     btnHire.isEnabled = false
                 }
+            }
+
+
+//            databaseb = FirebaseFirestore.getInstance()
+//            database.collection("VOLUNTEERS").
+//            addSnapshotListener(object : EventListener<QuerySnapshot> {
+//                @SuppressLint("NotifyDataSetChanged")
+//                override fun onEvent(
+//                    value: QuerySnapshot?,
+//                    error: FirebaseFirestoreException?
+//                ) {
+//                    if(error!=null){
+//                        Log.e("Firestore error: ",error.message.toString())
+//                        return
+//                    }
+//                    for(dc: DocumentChange in value?.documentChanges!!){
+//                        if(dc.type == DocumentChange.Type.ADDED){
+//                            if (dc.document.toObject(VolunteerApplication::class.java).hireStatus=="Pending" || dc.document.toObject(
+//                                    VolunteerApplication::class.java).hireStatus=="Hired" || dc.document.toObject(
+//                                    VolunteerApplication::class.java).hireStatus=="Rejected") {
+//                                if(dc.document.toObject(VolunteerApplication::class.java).hiredBy==auth)
+//                                    volAppliArrayList.add(dc.document.toObject(VolunteerApplication::class.java))
+//                                binding.NoApplicationAppli.visibility=View.GONE
+//                            }
+//                        }
+//                    }
+////                Log.d("datahere", volAppliArrayList.toString())
+////                adapter.notifyDataSetChanged()
+////                        adapter.notifyItemInserted(volArrayList.size-1)
+//                    recyclerView.adapter=adapter
+//                }
+//
+//            })
 
                 btnHire.setOnClickListener {
                     database.collection("VOLUNTEERS")
@@ -67,10 +129,11 @@ class VolunteerAdapter( var volunteerList:ArrayList<Volunteer>) :RecyclerView.Ad
                                             Log.d("docid", user.toString())
 
                                             database.collection("VOLUNTEERS").document(user)
-                                                .update("hireStatus", "Pending")
-
-//                                    notifyDataSetChanged()
-
+//                                                .update("hireStatus", "Pending")
+                                                .update(mapOf(
+                                                    "hireStatus" to "Pending",
+                                                    "hiredBy" to currUser
+                                                ))
                                         }
                                     }
                                 }
@@ -83,15 +146,16 @@ class VolunteerAdapter( var volunteerList:ArrayList<Volunteer>) :RecyclerView.Ad
                     // Handle item click
                     val context = holder.itemView.context
                     val intent = Intent(context, ProfileOfVolunteer::class.java).apply {
-                        putExtra("name", curPosi.name)
-                        putExtra("contact", curPosi.contact)
-                        putExtra("age", curPosi.age.toString())
-                        putExtra("gender", curPosi.gender)
-                        putExtra("address", curPosi.address)
-                        putExtra("location", curPosi.location)
-                        putExtra("service", curPosi.service)
-                        putExtra("shift", curPosi.shift)
-                        putExtra("amount", curPosi.amount.toString())
+                        putExtra("volUid",curPosi.uid)
+//                        putExtra("name", curPosi.name)
+//                        putExtra("contact", curPosi.contact)
+//                        putExtra("age", curPosi.age.toString())
+//                        putExtra("gender", curPosi.gender)
+//                        putExtra("address", curPosi.address)
+//                        putExtra("location", curPosi.location)
+//                        putExtra("service", curPosi.service)
+//                        putExtra("shift", curPosi.shift)
+//                        putExtra("amount", curPosi.amount.toString())
                     }
                     context.startActivity(intent)
 
@@ -111,6 +175,7 @@ class VolunteerAdapter( var volunteerList:ArrayList<Volunteer>) :RecyclerView.Ad
         val amountTextView: TextView = itemView.findViewById(R.id.amountTV)
         val btnHire: Button = itemView.findViewById(R.id.hireBtn)
         val btnProfile:Button = itemView.findViewById(R.id.profileBtn)
+        val imageUser:ImageView = itemView.findViewById(R.id.imageViewUserSearch)
 //        private val statusTextView: TextView = itemView.findViewById(R.id.statusTV)
 
 

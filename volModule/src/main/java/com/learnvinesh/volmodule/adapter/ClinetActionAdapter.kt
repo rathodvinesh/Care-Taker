@@ -1,13 +1,18 @@
 package com.learnvinesh.volmodule.adapter
 
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentChange
@@ -17,6 +22,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.toObject
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.learnvinesh.volmodule.ProfileOfClient
 import com.learnvinesh.volmodule.R
 import com.learnvinesh.volmodule.model.ClientActionData
 import com.learnvinesh.volmodule.model.VolunteerAppliData
@@ -33,9 +40,11 @@ class ClinetActionAdapter(var clientList:ArrayList<ClientActionData>):RecyclerVi
         val addressTextView: TextView = itemView.findViewById(R.id.addressTV)
         val ailmentTextView: TextView = itemView.findViewById(R.id.ailmentTV)
         val contactTextView: TextView = itemView.findViewById(R.id.contactTV)
+//        val desc :TextView ?=null
         val btnAccept: Button = itemView.findViewById(R.id.acceptBtn)
         val btnReject: Button = itemView.findViewById(R.id.rejectBtn)
         val btnProfile: Button = itemView.findViewById(R.id.viewProfileBtn)
+        val imgUser:ImageView = itemView.findViewById(R.id.clientImage)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClientActionViewHolder {
@@ -56,7 +65,20 @@ class ClinetActionAdapter(var clientList:ArrayList<ClientActionData>):RecyclerVi
             val currentUser = auth.currentUser?.uid.toString()
             Log.i("CurrUser",currentUser)
 
-//            if()
+            val storageReference = FirebaseStorage.getInstance().reference
+            val imageRef = storageReference.child("/Profile_Photos/${currentPosiClient.uid}")
+
+            Log.d("userklcmskchdsf", imageRef.toString())
+
+            imageRef.downloadUrl.addOnSuccessListener {
+                Glide.with(holder.itemView.context)
+                    .load(it)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .error(R.drawable.baseline_person_24)
+                    .into(holder.imgUser)
+            }.addOnFailureListener {
+//                Toast.makeText(holder.itemView.context, it.message.toString(), Toast.LENGTH_SHORT).show()
+            }
 
             nameTextView.text = currentPosiClient.name
             ageTextView.text = currentPosiClient.age
@@ -67,6 +89,13 @@ class ClinetActionAdapter(var clientList:ArrayList<ClientActionData>):RecyclerVi
 
 
             btnAccept.setOnClickListener {
+
+                val sharedPref = holder.itemView.context.getSharedPreferences("careTaker", Context.MODE_PRIVATE)
+
+                val editor = sharedPref.edit()
+                editor.putString(currentPosiClient.uid.toString(), "Accepted")
+                editor.apply()
+
 
                 database.collection("VOLUNTEERS")
                     .addSnapshotListener(object : EventListener<QuerySnapshot>{
@@ -108,6 +137,12 @@ class ClinetActionAdapter(var clientList:ArrayList<ClientActionData>):RecyclerVi
 
             btnReject.setOnClickListener {
 
+                val sharedPref = holder.itemView.context.getSharedPreferences("careTaker", Context.MODE_PRIVATE)
+
+                val editor = sharedPref.edit()
+                editor.putString(currentPosiClient.uid.toString(), "Rejected")
+                editor.apply()
+
                 database.collection("VOLUNTEERS")
                     .addSnapshotListener(object : EventListener<QuerySnapshot>{
                         override fun onEvent(
@@ -127,7 +162,7 @@ class ClinetActionAdapter(var clientList:ArrayList<ClientActionData>):RecyclerVi
                                             if (uid == currentUser) {
 
                                                 database.collection("VOLUNTEERS").document(user)
-                                                    .update("hireStatus", "Un-Hired")
+                                                    .update("hireStatus", "Rejected")
                                                     .addOnSuccessListener {
 
                                                         btnAccept.isEnabled = false
@@ -144,6 +179,21 @@ class ClinetActionAdapter(var clientList:ArrayList<ClientActionData>):RecyclerVi
                             }
                         }
                     })
+            }
+            btnProfile.setOnClickListener {
+                // Handle item click
+                val context = holder.itemView.context
+                val intent = Intent(context, ProfileOfClient::class.java).apply {
+                    putExtra("uidCli", currentPosiClient.uid)
+//                    putExtra("contact", currentPosiClient.contact)
+//                    putExtra("age", currentPosiClient.age.toString())
+//                    putExtra("gender", currentPosiClient.gender)
+//                    putExtra("address", currentPosiClient.address)
+//                    putExtra("location", currentPosiClient.location)
+//                    putExtra("suffering", currentPosiClient.suffering)
+                }
+                context.startActivity(intent)
+
             }
         }
     }

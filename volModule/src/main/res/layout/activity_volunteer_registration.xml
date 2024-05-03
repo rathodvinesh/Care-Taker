@@ -42,10 +42,10 @@
                 android:layout_marginTop="125dp"
                 android:fontFamily="@font/source_serif_pro"
                 android:text="Name:"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="normal"
+                android:textStyle="normal|bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -77,10 +77,10 @@
                 android:layout_marginTop="205dp"
                 android:fontFamily="@font/source_serif_pro"
                 android:text="Email:"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="normal"
+                android:textStyle="normal|bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -112,9 +112,10 @@
                 android:layout_marginTop="285dp"
                 android:fontFamily="@font/source_serif_pro"
                 android:text="Password:"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -190,13 +191,14 @@
                 android:id="@+id/textView18"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="55dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="365dp"
                 android:fontFamily="@font/source_serif_pro"
                 android:text="Age:"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -204,7 +206,7 @@
                 android:id="@+id/editTextAgeVol"
                 android:layout_width="70dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="110dp"
+                android:layout_marginStart="70dp"
                 android:layout_marginTop="350dp"
                 android:background="@drawable/text_shape"
                 android:ems="10"
@@ -222,12 +224,13 @@
                 android:id="@+id/textView19"
                 android:layout_width="80dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="190dp"
+                android:layout_marginStart="170dp"
                 android:layout_marginTop="365dp"
                 android:fontFamily="@font/source_serif_pro"
                 android:text="Gender:"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -235,7 +238,7 @@
                 android:id="@+id/radioBtnGenderVol"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="270dp"
+                android:layout_marginStart="250dp"
                 android:layout_marginTop="355dp"
                 android:orientation="horizontal">
 
@@ -267,9 +270,10 @@
                 android:layout_marginTop="435dp"
                 android:fontFamily="@font/source_serif_pro"
                 android:text="Contact:"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -299,9 +303,10 @@
                 android:layout_marginTop="515dp"
                 android:fontFamily="@font/source_serif_pro"
                 android:text="Address:"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -313,9 +318,10 @@
                 android:layout_marginTop="595dp"
                 android:fontFamily="@font/source_serif_pro"
                 android:text="Location:"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -323,7 +329,7 @@
                 android:id="@+id/editTextLocationVol"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="120dp"
+                android:layout_marginStart="125dp"
                 android:layout_marginTop="585dp"
                 android:background="@drawable/text_shape"
                 android:ems="10"
@@ -365,9 +371,10 @@
                 android:layout_marginTop="660dp"
                 android:fontFamily="@font/source_serif_pro"
                 android:text="Shift:"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -399,9 +406,10 @@
                 android:layout_marginTop="740dp"
                 android:fontFamily="@font/source_serif_pro"
                 android:text="Service:"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -415,6 +423,7 @@
                 android:ems="10"
                 android:fontFamily="@font/source_serif_pro"
                 android:gravity="start|center"
+                android:hint="Enter the amount"
                 android:paddingStart="10sp"
                 android:textColor="@color/button_color"
                 android:textColorHint="@color/button_color"
@@ -430,9 +439,10 @@
                 android:layout_marginTop="820dp"
                 android:fontFamily="@font/source_serif_pro"
                 android:text="Amount:"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -444,24 +454,26 @@
                 android:layout_marginTop="885dp"
                 android:fontFamily="@font/source_serif_pro"
                 android:text="Description:"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextDescriptionVol"
                 android:layout_width="wrap_content"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="150dp"
                 android:layout_marginTop="880dp"
                 android:background="@drawable/text_shape"
                 android:ems="10"
-                android:gravity="center"
-                android:inputType="textMultiLine"
                 android:fontFamily="@font/source_serif_pro"
+                android:gravity="center"
+                android:hint="Enter your description"
+                android:inputType="textMultiLine"
                 android:textColor="@color/button_color"
                 android:textColorHint="@color/button_color"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </FrameLayout>
     </ScrollView>
 

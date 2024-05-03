@@ -15,8 +15,15 @@
         android:title="View" />
 
     <item
+        android:id="@+id/bottom_noti"
+        android:icon="@drawable/baseline_check_24"
+        app:cnb_iconColor="@color/button_color"
+        android:title="Noti" />
+
+    <item
         android:id="@+id/bottom_profile"
         android:icon="@drawable/baseline_person_24"
         app:cnb_iconColor="@color/button_color"
         android:title="Profile" />
+
 </menu>
