@@ -40,6 +40,7 @@ class ClinetActionAdapter(var clientList:ArrayList<ClientActionData>):RecyclerVi
         val addressTextView: TextView = itemView.findViewById(R.id.addressTV)
         val ailmentTextView: TextView = itemView.findViewById(R.id.ailmentTV)
         val contactTextView: TextView = itemView.findViewById(R.id.contactTV)
+//        val desc :TextView ?=null
         val btnAccept: Button = itemView.findViewById(R.id.acceptBtn)
         val btnReject: Button = itemView.findViewById(R.id.rejectBtn)
         val btnProfile: Button = itemView.findViewById(R.id.viewProfileBtn)

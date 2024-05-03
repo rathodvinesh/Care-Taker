@@ -30,7 +30,7 @@ class ProfileOfVolunteer : AppCompatActivity() {
 
         // Set the retrieved values to corresponding TextViews
         binding.tvNameVol.text = firstName
-        binding.tvDescriptionVol.text = description
+        binding.tvDescriptionsVol.text = description
         binding.tvPhoneVol.text = phone
         binding.tvAgeVol.text = age
         binding.tvGenderVol.text = gender
