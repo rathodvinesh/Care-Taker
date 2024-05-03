@@ -45,7 +45,7 @@
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="normal"
+                android:textStyle="normal|bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,7 +80,7 @@
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="normal"
+                android:textStyle="normal|bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -115,6 +115,7 @@
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -197,6 +198,7 @@
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -228,6 +230,7 @@
                 android:text="Gender:"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -270,6 +273,7 @@
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -302,6 +306,7 @@
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -316,6 +321,7 @@
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -368,6 +374,7 @@
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -402,6 +409,7 @@
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -415,8 +423,8 @@
                 android:ems="10"
                 android:fontFamily="@font/source_serif_pro"
                 android:gravity="start|center"
+                android:hint="Enter the amount"
                 android:paddingStart="10sp"
-                android:text="Enter the amount"
                 android:textColor="@color/button_color"
                 android:textColorHint="@color/button_color"
                 android:textSize="18sp"
@@ -434,6 +442,7 @@
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -447,7 +456,8 @@
                 android:text="Description:"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextDescriptionVol"
