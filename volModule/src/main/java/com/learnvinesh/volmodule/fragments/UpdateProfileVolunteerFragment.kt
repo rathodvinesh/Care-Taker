@@ -52,8 +52,8 @@ class UpdateProfileVolunteerFragment : Fragment() {
 
         Log.d("userklcmskf", userUid)
 
-        val storageReference = FirebaseStorage.getInstance().reference
-        val imageRef = storageReference.child("/Profile_Photos/${userUid}")
+//        storageRef = FirebaseStorage.getInstance().reference
+        val imageRef = storageRef.child("/Profile_Photos/${userUid}")
 
         Log.d("userklcmskchdsf", imageRef.toString())
 
