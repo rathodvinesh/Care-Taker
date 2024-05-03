@@ -52,7 +52,7 @@ class UpdateProfileFragment : Fragment() {
         navController = (requireActivity() as MainActivity).navController
 
         mAuth = FirebaseAuth.getInstance()
-        storage = FirebaseStorage.getInstance()
+        storageRef = FirebaseStorage.getInstance().reference
         firestore = FirebaseFirestore.getInstance()
 
         // Retrieve user profile data
@@ -60,8 +60,8 @@ class UpdateProfileFragment : Fragment() {
 
         Log.d("userklcmskf", userUid)
 
-        val storageReference = FirebaseStorage.getInstance().reference
-        val imageRef = storageReference.child("/Profile_Photos/${userUid}")
+//        val storageReference = FirebaseStorage.getInstance().reference
+        val imageRef = storageRef.child("/Profile_Photos/${userUid}")
 
         Log.d("userklcmskchdsf", imageRef.toString())
 
