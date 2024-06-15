@@ -10,7 +10,7 @@ In the realm of modern living, where time is of the essence and responsibilities
      - Users can navigate to ClientLogin or VolunteerLogin activities based on their role selection.
      - Uses Firebase authentication for user login and registration.
    - **Screenshot**:
-     - ![Screenshot 1](screenshots/screenshot1.png)
+     - <img src="Screenshots/Login.jpg" alt="Screenshot 1" width="300">
 
 2. **ClientLogin Activity**
    - **Description**: Handles client authentication and login.
@@ -18,7 +18,7 @@ In the realm of modern living, where time is of the essence and responsibilities
      - Clients input credentials to log in or can register for new accounts.
      - Integrates with Firebase authentication.
    - **Screenshot**:
-     - ![Screenshot 1](screenshots/screenshot1.png)
+     - <img src="Screenshots/Client/CLogin.jpg" alt="Screenshot 1" width="300">
 
 3. **VolunteerLogin Activity**
    - **Description**: Manages volunteer authentication and login.
@@ -26,7 +26,7 @@ In the realm of modern living, where time is of the essence and responsibilities
      - Volunteers input credentials to log in or can register for new accounts.
      - Integrates with Firebase authentication.
    - **Screenshot**:
-     - ![Screenshot 1](screenshots/screenshot1.png)
+     - <img src="Screenshots/Volunteer/VLogin.jpg" alt="Screenshot 1" width="300">
 
 4. **MainActivity**
    - **Description**: Main activity post-login, directs users based on their role (client or volunteer).
@@ -34,7 +34,7 @@ In the realm of modern living, where time is of the essence and responsibilities
      - Redirects clients to ClientMainActivity and volunteers to VolunteerMainActivity.
      - Utilizes Firestore for data retrieval and display.
    - **Screenshot**:
-     - ![Screenshot 1](screenshots/screenshot1.png)
+     - <img src="Screenshots/Client/CHome.jpg" alt="Screenshot 1" width="300">
 
 ## Fragments
 
@@ -43,27 +43,34 @@ In the realm of modern living, where time is of the essence and responsibilities
   - **Functionality**:
     - Integrated within ClientMainActivity for modular UI management.
     - Uses RecyclerView and Firestore adapters for data display.
-  1. **Home**
-  2. **Application**
-  3. **Notification**
-  4. **Profile**
-  5. **Update Profile**
   - **Screenshot**:
-     - ![Screenshot 1](screenshots/screenshot1.png)
-     - ![Screenshot 2](screenshots/screenshot2.png)
-
+  1. **Home**
+     - <img src="Screenshots/Client/CHome.jpg" alt="Screenshot 1" width="300">
+  2. **Application**
+     - <img src="Screenshots/Client/CAppli.jpg" alt="Screenshot 1" width="300">
+  3. **Notification**
+     - <img src="Screenshots/Client/CNoti.jpg" alt="Screenshot 1" width="300">
+  4. **Profile**
+     - <img src="Screenshots/Client/CProfile.jpg" alt="Screenshot 1" width="300">
+  5. **Update Profile**
+     - <img src="Screenshots/Client/CUpdateProfile.jpg" alt="Screenshot 1" width="300">
+     
 - **VolunteerFragment**
   - **Description**: Fragment displaying volunteer-specific tasks and interactions.
   - **Functionality**:
     - Part of VolunteerMainActivity for managing volunteer tasks and information.
     - Communicates with Firestore for real-time updates and task management.
+- **Screenshots**:
   1. **Home**
+     - <img src="Screenshots/Volunteer/VHome.jpg" alt="Screenshot 1" width="300">
+  2. **Applications**
+     - <img src="Screenshots/Volunteer/VAppli.jpg" alt="Screenshot 1" width="300">
   2. **Notification**
+     - <img src="Screenshots/Volunteer/VNoti.jpg" alt="Screenshot 1" width="300">
   3. **Profile**
+      - <img src="Screenshots/Volunteer/VProfile.jpg" alt="Screenshot 1" width="300">
   4. **Update Profile**
-  - **Screenshot**:
-     - ![Screenshot 1](screenshots/screenshot1.png)
-     - ![Screenshot 2](screenshots/screenshot2.png)
+      - <img src="Screenshots/Volunteer/VUpdateProfile.jpg" alt="Screenshot 1" width="300">
 
 ## Setup and Run Instructions
 
