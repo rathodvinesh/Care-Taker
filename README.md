@@ -5,9 +5,9 @@ In the realm of modern living, where time is of the essence and responsibilities
 ## Pages Description
 
 1. **PreLogin Activity**
-   - **Description**: Entry point to the application where users choose to log in as a client or volunteer.
+   - **Description**: Entry point to the application where users choose to log in or register as a client or volunteer.
    - **Functionality**:
-     - Users can navigate to ClientLogin or VolunteerLogin activities based on their role selection.
+     - Users can navigate to ClientLogin, ClientRegistration, VolunteerLogin, or VolunteerRegistration activities.
      - Uses Firebase authentication for user login and registration.
    - **Screenshot**:
      - <img src="Screenshots/Login.jpg" alt="Screenshot 1" width="300">
@@ -18,23 +18,24 @@ In the realm of modern living, where time is of the essence and responsibilities
      - Clients input credentials to log in or can register for new accounts.
      - Integrates with Firebase authentication.
    - **Screenshot**:
-     - <img src="Screenshots/Client/CLogin.jpg" alt="Screenshot 1" width="300">
+     - <img src="Screenshots/Client/CLogin.jpg" alt="Screenshot 2" width="300">
 
-3. **VolunteerLogin Activity**
+3. **ClientRegistration & VolunteerRegistration Activity**
+   - **Description**: Manages client registration for new accounts.
+   - **Functionality**:
+     - Clients input required information to create a new account.
+     - Integrates with Firebase authentication for account creation.
+   - **Screenshot**:
+     - <img src="Screenshots/Register.jpg" alt="Screenshot 3" width="300">
+     - <img src="Screenshots/Register2.jpg" alt="Screenshot 3" width="300">
+
+4. **VolunteerLogin Activity**
    - **Description**: Manages volunteer authentication and login.
    - **Functionality**:
      - Volunteers input credentials to log in or can register for new accounts.
      - Integrates with Firebase authentication.
    - **Screenshot**:
-     - <img src="Screenshots/Volunteer/VLogin.jpg" alt="Screenshot 1" width="300">
-
-4. **MainActivity**
-   - **Description**: Main activity post-login, directs users based on their role (client or volunteer).
-   - **Functionality**:
-     - Redirects clients to ClientMainActivity and volunteers to VolunteerMainActivity.
-     - Utilizes Firestore for data retrieval and display.
-   - **Screenshot**:
-     - <img src="Screenshots/Client/CHome.jpg" alt="Screenshot 1" width="300">
+     - <img src="Screenshots/Volunteer/VLogin.jpg" alt="Screenshot 4" width="300">
 
 ## Fragments
 
